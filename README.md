@@ -1,4 +1,4 @@
-# E-commerce-Tornillos
+# E-commerce-Tornillos Módulo Finanzas
 E-commerce | Equipo 1 | Tienda de Tornillos
 
-Modulo a cargo de Marco Mendoza | No Control 15280848
+Módulo a cargo de: Marco Mendoza | No Control 15280848
