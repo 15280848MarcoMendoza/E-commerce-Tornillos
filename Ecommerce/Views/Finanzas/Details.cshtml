@@ -1,0 +1,67 @@
+﻿@using Ecommerce.Models
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Detalles de compra</h2>
+
+<form>
+    <p>
+        <button class="btn btn-light" formaction="/Finanzas/AprobacionCompras
+                ">Regresar al historial</button>
+    </p>
+</form>
+<table class="table">
+    <tr>
+  <th>
+      Producto
+  </th>
+        <th>
+            Cantidad
+        </th>
+        <th>
+            Subtotal
+        </th>
+        <th>
+            Fecha de vencimiento
+        </th>
+        <th>
+            Razon
+        </th> 
+        <th>
+        Acciones
+        </th>
+
+    </tr>
+
+@foreach (DetalleCompras item in ViewBag.AprobacionCompras) {
+<tr>
+    <td>
+        @item.Productos.Nombre
+    </td>
+    <td>
+        @item.Cantidad
+    </td>
+
+    <td>
+        @item.SubTotal
+    </td>
+    <td>
+        @item.Fecha_vencimiento
+    </td>   
+    <td>
+        Un fuerte pedidio hizo que nos quedaramos sin stock y necesitamos comprar mas
+    </td>
+    <td>
+ @Html.ActionLink("Aprobar", "Details", new { id = item.Id })
+        |
+
+        @Html.ActionLink("Negar", "Details", new { id = item.Id })
+    </td>
+</tr>
+}
+
+</table>
+

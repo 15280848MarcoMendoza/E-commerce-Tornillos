@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Ecommerce.Models.Ventas>
+
+@{
+    ViewBag.Title = "Historial";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var items = ViewBag.ventas;
+}
+
+
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <h2 style="color:#000000">Historial de Compras</h2>
+        <table class="table">
+            <tr style="background-color: #F7F7F7" class="text-center">
+                <th>
+                    Status
+                </th>
+                <th>
+                    Tipo de Pago
+                </th>
+                <th>
+                    Fecha de Venta
+                </th>
+                <th>
+                    Total
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in items)
+            {
+                var tipoPago = "";
+                if (item.TipoPago == 1)
+                {
+                    tipoPago = "Efectivo";
+                }
+                else if (item.TipoPago == 2)
+                {
+                    tipoPago = "Tarjeta";
+                }
+                var status = "";
+                if (item.Status == 1)
+                {
+                    status = "Pago pendiente";
+                }
+                else if (item.Status == 2)
+                {
+                    status = "Pagado";
+                }
+                else if (item.Status == 3)
+                {
+                    status = "Entregado";
+                }
+                <tr style="background-color: #FFFFFF" class="text-center">
+                    <td>
+                        @status
+                    </td>
+                    <td>
+                        @tipoPago
+                    </td>
+                    <td>
+                        @item.FechaVenta
+                    </td>
+                    <td>
+                        @item.Total
+                    </td>
+                    <td>
+                        @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+    <div class="col-md-1"></div>
+</div>

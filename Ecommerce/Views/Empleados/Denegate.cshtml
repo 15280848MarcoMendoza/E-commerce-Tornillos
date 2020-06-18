@@ -1,0 +1,24 @@
+﻿@model Ecommerce.Models.Empleados
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+    <div class="container my-5">
+
+
+
+        <h2>Sin permisos</h2>
+        <br />
+        <p><strong>Nombre: </strong> @Model.Nombre</p>
+        <br />
+        <p><strong>Area: </strong> @Model.Area</p>
+        <br />
+        <p><strong>Puesto: </strong> @Model.Puesto</p>
+        <br />
+        <br />
+        <p>Este usuario no tiene permisos para acceder a este menu</p>
+        <div class="my-3">
+            @Html.ActionLink("Volver", "Home", "Empleados", new { }, new { @class = "btn btn-primary text-white" })
+        </div>
+    </div>

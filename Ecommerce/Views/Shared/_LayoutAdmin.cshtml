@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewBag.Title - TORNITEC</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Page level plugin CSS -->
+    <link href="/Content/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="/Content/css/sb-admin.css" rel="stylesheet">
+
+
+</head>
+<body id="page-top">
+    <nav class="navbar navbar-light navbar-expand-md  justify-content-md-center justify-content-start" style="background-color: #024575;">
+
+        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+            <i class="fas fa-bars"></i>
+        </button>
+        <a class="navbar-brand mr-1" href="@Url.Action("Index", "Home")" style="color:white">TORNITEC</a>
+
+
+
+
+        <!-- Navbar -->
+        <ul class="navbar-nav mx-auto text-md-center text-left"></ul>
+        <ul>
+            @Html.Partial("_LoginAdmin")
+        </ul>
+    </nav>
+
+    <div id="wrapper">
+
+        <ul class="sidebar navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="almacenDropdown" role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                    <i class="fas fa-fw fa-search"></i>
+                    <span>Almacen</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="almacenDropdown">
+
+                    <a>@Html.ActionLink("Productos", "Index", "Productos", new object { }, new { @class = "dropdown-item" })</a>
+                    <a>@Html.ActionLink("Categorías", "Index", "Catalogos1", new object { }, new { @class = "dropdown-item" })</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="FinanzasDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Finanzas</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="FinanzasDropdown">
+
+                    <a>@Html.ActionLink("Ver Peticiones de Compras", "AprobacionCompras", "Finanzas", new object { }, new { @class = "dropdown-item" })</a>
+                    <a>@Html.ActionLink("Ver Asignación de Precios", "AsignacionPrecios", "Finanzas", new object { }, new { @class = "dropdown-item" })</a>
+                    <a>@Html.ActionLink("Ver Balance General",       "BalanceGeneral", "Finanzas", new object { }, new { @class = "dropdown-item" })</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="empleadosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-money-bill-alt"></i>
+                    <span>Ventas</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="empleadosDropdown">
+                    <a>@Html.ActionLink("Recursos Humanos", "IndexRH", "Empleados", new object { }, new { @class = "dropdown-item" })</a>
+                    <a>@Html.ActionLink("Administración", "Index", "Empleados", new object { }, new { @class = "dropdown-item" })</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="empleadosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Compras</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="empleadosDropdown">
+                    <a>@Html.ActionLink("Recursos Humanos", "IndexRH", "Empleados", new object { }, new { @class = "dropdown-item" })</a>
+                    <a>@Html.ActionLink("Administración", "Index", "Empleados", new object { }, new { @class = "dropdown-item" })</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="empleadosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <span>Pago a Prov.</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="empleadosDropdown">
+                    <a>@Html.ActionLink("Recursos Humanos", "IndexRH", "Empleados", new object { }, new { @class = "dropdown-item" })</a>
+                    <a>@Html.ActionLink("Administración", "Index", "Empleados", new object { }, new { @class = "dropdown-item" })</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="empleadosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-user-circle"></i>
+                    <span>Empleado</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="empleadosDropdown">
+                    <a>@Html.ActionLink("Recursos Humanos", "IndexRH", "Empleados", new object { }, new { @class = "dropdown-item" })</a>
+                    <a>@Html.ActionLink("Administración", "Index", "Empleados", new object { }, new { @class = "dropdown-item" })</a>
+                </div>
+            </li>
+
+        </ul>
+
+    <div id="content-wrapper">
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year, TORNITEC. Todos los derechos reservados.</p>
+            </footer>
+        </div>
+
+    </div>
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- /#wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+  
+    @RenderSection("scripts", required: false)
+    <script src="Content/vendor/jquery/jquery.min.js"></script>
+    <script src="Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="Content/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="Content/js/sb-admin.min.js"></script>
+ 
+    <script src="https://kit.fontawesome.com/d9e9a292ac.js" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

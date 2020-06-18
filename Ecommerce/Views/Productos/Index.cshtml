@@ -1,0 +1,115 @@
+﻿@model IEnumerable<Ecommerce.Models.Productos>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center">Productos Registrados</h2>
+
+<p>
+    <a href="@Url.Action("Create","Productos")" class="btn btn-primary">Registrar nuevo producto</a>
+   
+</p>
+<div class="table-responsive">
+    <table class="table-bordered">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Url_image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Sabor)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Costo_unitario)
+            </th>
+            <th>
+                Descuento
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Time_Mount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time_Day)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio_final)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad_ventas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.activo)
+            </th>
+            <th>Acciones</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                <img src="~/Content/@item.Url_image" style="height:100px; width:100%" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Sabor)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Costo_unitario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Porcentage_descuento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time_Mount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time_Day)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio_final)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad_ventas)
+            </td>
+            <td>
+                <a href="@Url.Action("Cambio","Productos",new { id=item.Id})"><i class="fas @(item.activo ? "fa-toggle-on" : "fa-toggle-off")"></i></a>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-outline-warning" })
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-outline-info" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-outline-danger" })
+            </td>
+        </tr>
+        }
+
+
+    </table>
+    </div>

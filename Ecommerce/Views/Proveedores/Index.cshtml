@@ -1,0 +1,66 @@
+﻿@using Ecommerce.Models;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Proveedores</h2>
+<div class="text-right">
+
+    <form>
+        <p>
+            <button class="btn btn-success" formaction="/Proveedores/Crear">Agregar</button>
+        </p>
+    </form>
+
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Telefono
+        </th>
+
+        <th>
+            Correo
+        </th>
+        <th></th>
+
+    </tr>
+
+    @foreach (Provedores item in ViewBag.proveedores)
+    {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @item.Nombre
+            </td>
+            <td>
+                @item.Telefono
+            </td>
+
+            <td>
+                @item.Correo
+            </td>
+ 
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Comprar", "Compra_proveedor", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+
+
+

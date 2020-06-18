@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<h2 class="text-center">Categorias producto</h2>
+<p>
+    <a data-toggle="modal" data-target="#modal1" class="btn btn-info text-white">Crear categoria</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Opciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                1
+            </td>
+            <td>
+                Mas vendido
+            </td>
+            <td>
+                @{
+                    <a data-toggle="modal" data-target="#modal2" class="btn btn-default"><img src="~/Content/img/modificar.jpg" width="25px" /></a>
+                    <a data-toggle="modal" data-target="#ModalEliminar" class="btn btn-default"><img src="~/Content/img/eliminar.jpg" width="25px" /></a>
+                }
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="modal fade" data-backdrop="static" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Agregar categoria</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post" asp-controller="Categorias" asp-action="GetPost">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-2">Nombre categoria</label>
+                            <div class="col-md-10">
+                                <input placeholder="Nombre" class="form-control" />
+                                <span class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type=" button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" data-backdrop="static" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Editar categoria</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post" asp-controller="Categorias" asp-action="GetPost">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-2">Nombre categoria</label>
+                            <div class="col-md-10">
+                                <input placeholder="Nombre" class="form-control" />
+                                <span class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type=" button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

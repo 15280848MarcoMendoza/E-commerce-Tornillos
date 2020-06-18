@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Ecommerce.Models.Compras>
+@{
+    ViewBag.Title = "AprobacionCompras";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Aprobacion Compras</h2>
+</br>
+</br>
+@using (@Html.BeginForm("Index", "Compras", FormMethod.Get))
+{
+
+    <b> Buscar por:</b>
+    @Html.RadioButton("searchBy", "Status", true, new { htmlAttributes = new { @class = "form-check-input" } }) <text>
+        Estado
+    </text>
+    @Html.RadioButton("searchBy", "TipoPago", new { htmlAttributes = new { @class = "form-check-input" } }) <text>
+        Tipo de Pago</text>
+    @Html.RadioButton("searchBy", "Provedor", new { htmlAttributes = new { @class = "form-check-input" } }) <text>
+        Nombre de proveedor</text>
+    <text> </text>
+    @Html.TextBox("search")
+    <input type="submit" value="Buscar" class="btn btn-warning" style="height:35px"  />
+    <br />
+}
+</br>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Id de Compra
+            </th>
+            <th>
+                @Html.ActionLink("Fecha de Compra", "AprobacionCompras", new { sortBy = ViewBag.FechaSort, searchBy = Request["searchBy"], search = Request["search"] })
+            </th>
+            <th>
+                @Html.ActionLink("Nombre del proveedor", "AprobacionCompras", new { sortBy = ViewBag.ProveedorSort, searchBy = Request["searchBy"], search = Request["search"] })
+            </th>
+            <th>
+                @Html.ActionLink("Estado", "AprobacionCompras", new { sortBy = ViewBag.StatusSort, searchBy = Request["searchBy"], search = Request["search"] })
+            </th>
+            <th>
+                @Html.ActionLink("Tipo de Pago", "AprobacionCompras", new { sortBy = ViewBag.TipoPagoSort, searchBy = Request["searchBy"], search = Request["search"] })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th></th>
+
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaCompra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Provedores.Nombre)
+            </td>
+            <td>
+                @if (item.Status == 1)
+                {
+                    @: Pedido
+                }
+                else if (item.Status == 2)
+                {
+                    @: Pagado
+                }
+                else
+                {
+                    @:Recibido
+                }
+
+            </td>
+            <td>
+                @if (item.TipoPago == 1)
+                {
+                    @:Credito
+
+                }
+                else
+                {
+                    @:Contado
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.ActionLink("Detalles", "Details", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

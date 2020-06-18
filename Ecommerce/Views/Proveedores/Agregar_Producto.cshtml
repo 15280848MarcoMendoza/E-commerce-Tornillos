@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Ecommerce.Models.Productos>
+
+@{
+    ViewBag.Title = "Agregar_Producto";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Seleccione el producto que desee comprar</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Costo_unitario)
+        </th>
+        <th>
+            Tiempo de vida(Meses)
+        </th>
+        <th>
+            Tiempo de vida(Dias)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nombre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Costo_unitario)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Time_Mount)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Time_Day)
+    </td>
+    <td>
+        <a class="btn btn-success" href="@Url.Action("Agregar_Compra", "Proveedores", new { id = item.Id })">
+            <i class="fas fa-plus"></i>
+        </a>
+    </td>
+</tr>
+}
+
+</table>

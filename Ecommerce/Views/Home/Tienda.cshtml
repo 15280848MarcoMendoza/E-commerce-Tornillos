@@ -1,0 +1,106 @@
+﻿@using Ecommerce.Models;
+@{
+    ViewBag.Title = "Tienda";
+}
+<div class="colorlib-loader"></div>
+
+<div id="page">
+
+    <aside id="colorlib-hero" class="breadcrumbs">
+        <div class="flexslider">
+            <ul class="slides">
+                <li style="background-image: url(../../Estilos/images/fondo-te2.jpg);">
+                    <div class="overlay"></div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
+                                <div class="slider-text-inner text-center">
+                                    <h1>Productos</h1>
+                                    <br />
+                                    <h2 class="bread"><span><a href="@Url.Action("Index", "Home")">Inicio</a></span> <span>Nuestros Productos</span></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <div class="colorlib-shop">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-push-2">
+                    <div class="row row-pb-lg">
+
+                        @foreach (Productos producto in ViewBag.productos)
+                        {
+                            <div class="col-md-4 text-center">
+                                <div class="product-entry">
+                                    <div class="product-img ">
+                                        <p class="tag"><span class="new">Desciprcion: @producto.Descripcion</span></p>
+                                        <img src="~/Content/@producto.Url_image" width="250" height="300">
+                                        <div class="cart">
+                                            <p>
+                                                <span class="addtocart"><a href="@Url.Action("Comprar", "Carrito", new { id = producto.Id })"><i class="icon-shopping-cart"></i></a></span>
+                                               
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="desc">
+                                        <h3><a href="detallleProducto.html">@producto.Nombre</a></h3>
+                                        <p class="price"><span>$@producto.Precio_final</span> </p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                       
+
+
+
+                    </div>
+                  
+                </div>
+                <div class="col-md-2 col-md-pull-10">
+                    <div class="sidebar">
+                        <div class="side">
+                            <h2>Categorias</h2>
+                            <div class="fancy-collapse-panel">
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel-body">
+                                        <ul>
+                                            @foreach (Catalogos catalog in ViewBag.catalogos)
+                                            {
+                                                <li >
+                                                    <a href="@Url.Action("Tienda", "Home",
+                new { Id = catalog.Id })"
+                                                       class="active
+                           @(ViewBag.active == catalog.Id ? "active": "" ) "
+                                                       title="List View">
+                                                        <h5>@catalog.name</h5>
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+</div>

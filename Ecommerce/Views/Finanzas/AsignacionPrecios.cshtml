@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Ecommerce.Models.Productos>
+@{
+    ViewBag.Title = "AsignacionPrecios";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Asignacion Precios</h2>
+
+
+</br>
+</br>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                ID Producto
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Marca
+            </th>
+            <th>
+                Precio Actual
+            </th>
+            <th>
+                Razon de Cambio
+            </th>
+            <th>
+                Precio Nuevo
+
+            </th>
+            <th>
+                Ultima Actualización
+            </th>
+            <th>
+                Historial
+            </th>
+            <th>
+                Solicitud
+            </th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Costo_unitario)
+            </td>   
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>   
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio_final)
+            </td>   
+            <td>
+              Dia:  @Html.DisplayFor(modelItem => item.Time_Day)
+              Mes:  @Html.DisplayFor(modelItem => item.Time_Mount)
+            </td>   
+            <td>
+
+                @Html.ActionLink("Ver", "DetallePrecios", new { id = item.Id })
+            </td>   
+            <td>
+                @Html.ActionLink("Aprobar", "Details", new { id = item.Id })
+
+                @Html.ActionLink("Negar", "Details", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
