@@ -26,7 +26,7 @@ namespace Ecommerce.Controllers
                 var iduser = User.Identity.GetUserId();
                 Empleados user = db.Empleados.Where(p => p.Id_users.Equals(iduser)).First();
 
-                if (user.Active && (user.Puesto.Equals("Control Finanzas") || user.Puesto.Equals("Director Administrativo")))
+                if (user.Active && (user.Puesto.Equals("Control finanzas") || user.Puesto.Equals("Director Administrativo")))
                 {
 
                     ViewBag.StatusSort = String.IsNullOrEmpty(sortBy) ? "Status desc" : "";
@@ -154,7 +154,7 @@ namespace Ecommerce.Controllers
                 var iduser = User.Identity.GetUserId();
                 Empleados user = db.Empleados.Where(p => p.Id_users.Equals(iduser)).First();
 
-                if (user.Active && (user.Puesto.Equals("Control Finanzas") || user.Puesto.Equals("Director Administrativo")))
+                if (user.Active && (user.Puesto.Equals("Control finanzas") || user.Puesto.Equals("Director Administrativo")))
                 {
 
                     List<SelectListItem> lst = new List<SelectListItem>();
@@ -198,7 +198,7 @@ namespace Ecommerce.Controllers
             {
                 var iduser = User.Identity.GetUserId();
                 Empleados user = db.Empleados.Where(p => p.Id_users.Equals(iduser)).First();
-                if (user.Active && (user.Puesto.Equals("Control Finanzas") || user.Puesto.Equals("Director Administrativo")))
+                if (user.Active && (user.Puesto.Equals("Control finanzas") || user.Puesto.Equals("Director Administrativo")))
                 {
                     if (ModelState.IsValid)
                     {
@@ -226,7 +226,7 @@ namespace Ecommerce.Controllers
             {
                 var iduser = User.Identity.GetUserId();
                 Empleados user = db.Empleados.Where(p => p.Id_users.Equals(iduser)).First();
-                if (user.Active && (user.Puesto.Equals("Control Finanzas") || user.Puesto.Equals("Director Administrativo")))
+                if (user.Active && (user.Puesto.Equals("Control finanzas") || user.Puesto.Equals("Director Administrativo")))
                 {
                     if (id == null)
                     {
@@ -258,7 +258,7 @@ namespace Ecommerce.Controllers
                 var iduser = User.Identity.GetUserId();
                 Empleados user = db.Empleados.Where(p => p.Id_users.Equals(iduser)).First();
 
-                if (user.Active && (user.Puesto.Equals("Control Finanzas") || user.Puesto.Equals("Director Administrativo")))
+                if (user.Active && (user.Puesto.Equals("Control finanzas") || user.Puesto.Equals("Director Administrativo")))
                 {
 
                     ViewBag.CurrentSort = sortBy;

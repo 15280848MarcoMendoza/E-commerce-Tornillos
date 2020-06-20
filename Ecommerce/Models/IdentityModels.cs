@@ -40,8 +40,6 @@ namespace Ecommerce.Models
         public DbSet<DetalleVenta> DetalleVentas{ get; set; }
         public DbSet<Ventas> Ventas { get; set; }
         public DbSet<Compras> Compras{ get; set; }
-        public DbSet<DetallePrecios> DetallePrecios{ get; set; }
-        public DbSet<Promociones> Promociones{ get; set; }
         public DbSet<Provedores> Provedores{ get; set; }
         public DbSet<Empleados> Empleados { get; set; }
 

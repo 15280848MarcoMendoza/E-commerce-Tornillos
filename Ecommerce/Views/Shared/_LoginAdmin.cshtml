@@ -8,20 +8,19 @@
     {
         @Html.AntiForgeryToken()
 
-        <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap align-items-center" style="margin-top:20px">
+        <ul class="nav navbar-nav navbar-right">
             <li>
-                <a class="btn btn-outline-light" href="#")">
+                <a class="btn btn-outline-dark" href="#")">
                     @User.Identity.GetUserName()
                     <i class="fas fa-user"></i>
                 </a>
             </li>
             <li class="mx-3"></li>
-            <li><a class="btn btn-outline-light" href="javascript:document.getElementById('logoutForm').submit()">
+            <li><a class="btn btn-outline-danger" href="javascript:document.getElementById('logoutForm').submit()">
                 Cerrar session
                 <i class="fas fa-sign-out-alt"></i>
             </a></li>
         </ul>
-
     }
 }
 else

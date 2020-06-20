@@ -6,7 +6,7 @@
 <aside id="colorlib-hero" class="breadcrumbs">
     <div class="flexslider">
         <ul class="slides">
-            <li style="background-image: url(../../Estilos/images/tes-shop.jpg);">
+            <li style="background-image: url(../../Content/img/tornillos.jpeg);">
                 <div class="overlay"></div>
                 <div class="container-fluid">
                     <div class="row">
@@ -47,7 +47,7 @@
                         @if (Request.IsAuthenticated)
                         {
                             <div class="justify-self-end mb-5">
-                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseMetodos" role="button" aria-expanded="false" aria-controls="collapseMetodos">
+                                <a class="btn btn-secondary" data-toggle="collapse" href="#collapseMetodos" role="button" aria-expanded="false" aria-controls="collapseMetodos">
                                     Comprar
                                 </a>
                             </div>
@@ -65,18 +65,7 @@
                                             <option value="2" type="text" name="targeta">Tarjeta @ViewBag.cliente.No_targeta</option>
                                         }
                                     </select>
-                                    @*@if (ViewBag.cliente.Tipo_targeta == null)
-                                        {
-                                            <input type="text" name="targeta" />
-                                            <input type="text" name="cvs" />
-                                        }
-                                        else
-                                        {
-                                            <label>@ViewBag.cliente.Tipo_targeta CVS</label>
-                                            <input type="text" name="cvs" />
-                                        }*@
-
-                                    <button type="button" class="btn btn-primary mt-5" data-toggle="modal" data-target="#Modal">
+                                    <button type="button" class="btn btn-secondary mt-5" data-toggle="modal" data-target="#Modal">
                                         Terminar compra
                                     </button>
                                 </div>
@@ -108,10 +97,10 @@
 
                                 <div class="one-forth">
                                     <div class="product-img">
-                                        <img src="~/Content/@item.Productos.Url_image" width="90" height="110" />
+                                        <img src="~/Content/img/dos.png" width="90" height="110" />
                                     </div>
                                     <div class="display-tc">
-                                        <h3>@item.Productos.Nombre</h3>
+                                        <h3>PIJA PARA MADERA</h3>
                                     </div>
                                 </div>
                                 <div class="one-eight text-center">
@@ -197,23 +186,22 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Terminar compra</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Compra terminada</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="alert alert-primary" role="alert">
-                    <b>¿Finalizar la compra?</b>
+                    <b>¿Desea finalizar la compra?</b>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <!--
-                <a class="btn btn-primary" href="@Url.Action("TerminarCompra", "Carrito")/">
-                    Finalizar compra
-                </a>-->
-                <button type="button" class="btn btn-primary" id="finish">Terminar compra</button>
+                <a class="btn btn-secondary" href="https://www.paypal.com/mx/signin">Realizar pago</a>                
+               <a class="btn btn-secondary" href="@Url.Action("TerminarCompra", "Carrito")/">
+                    Verificar datos
+                </a>
+                <button type="button" class="btn btn-secondary" id="finish">Terminar compra</button>
             </div>
         </div>
     </div>

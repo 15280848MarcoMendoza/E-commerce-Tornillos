@@ -8,18 +8,14 @@
 
         @if (Model.Active)
         {
-            <h2>Bienvenido empleado de                    </h2>
-            <br /> 
-            <img src="~/Content/img/LOGO.jpg" />
-        
-            <br />
-            <br />
+            <h2>Bienvenido empleado</h2>
             <br />
             <p><strong>Nombre: </strong> @Model.Nombre</p>
             <br />
             <p><strong>Area: </strong> @Model.Area</p>
             <br />
             <p><strong>Puesto: </strong> @Model.Puesto</p>
+            <br />
             <br />
             <p>Tus privilegios dentro de esta administracion son sobre los menus: </p>
 
@@ -28,8 +24,8 @@
                 case "Administrador de recursos humanos":
                     <strong> Empleados -> Recursos humanos</strong>
                     break;
-                case "Control Finanzas":
-                    <strong> Del área de Finanzas y sus submenus</strong>
+                case "Control finanzas":
+                    <strong> Provedores</strong>
                     break;
                 case "Control de almacen":
                     <strong> Almacen</strong>

@@ -21,7 +21,7 @@ namespace Ecommerce.Controllers
                 var iduser = User.Identity.GetUserId();
                 Empleados user = db.Empleados.Where(p => p.Id_users.Equals(iduser)).First();
 
-                if (user.Active && (user.Puesto.Equals("Control Finanzas") || user.Puesto.Equals("Director Administrativo")))
+                if (user.Active && (user.Puesto.Equals("Control finanzas") || user.Puesto.Equals("Director Administrativo")))
                 {
                     ViewBag.Ventas = db.Ventas.ToList();
                     return View();
@@ -40,7 +40,7 @@ namespace Ecommerce.Controllers
                 var iduser = User.Identity.GetUserId();
                 Empleados user = db.Empleados.Where(p => p.Id_users.Equals(iduser)).First();
 
-                if (user.Active && (user.Puesto.Equals("Control Finanzas") || user.Puesto.Equals("Director Administrativo")))
+                if (user.Active && (user.Puesto.Equals("Control finanzas") || user.Puesto.Equals("Director Administrativo")))
                 {
                     ViewBag.Detalle = db.Ventas.Find(Id).DetalleVentas;
                     return View();

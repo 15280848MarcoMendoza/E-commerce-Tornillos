@@ -25,7 +25,7 @@ namespace Ecommerce.Controllers
                 var iduser = User.Identity.GetUserId();
                 Empleados user = db.Empleados.Where(p => p.Id_users.Equals(iduser)).First();
 
-                if (user.Active && (user.Puesto.Equals("Control Finanzas") || user.Puesto.Equals("Director Administrativo")))
+                if (user.Active && (user.Puesto.Equals("Control finanzas") || user.Puesto.Equals("Director Administrativo")))
                 {
                     ViewBag.proveedores = db.Provedores.ToList();
                     return View();
@@ -48,7 +48,7 @@ namespace Ecommerce.Controllers
                 var iduser = User.Identity.GetUserId();
                 Empleados user = db.Empleados.Where(p => p.Id_users.Equals(iduser)).First();
 
-                if (user.Active && (user.Puesto.Equals("Control Finanzas") || user.Puesto.Equals("Director Administrativo")))
+                if (user.Active && (user.Puesto.Equals("Control finanzas") || user.Puesto.Equals("Director Administrativo")))
                 {
 
                     ViewBag.proveedores = db.Provedores.ToList();
@@ -77,7 +77,7 @@ namespace Ecommerce.Controllers
                 var iduser = User.Identity.GetUserId();
                 Empleados user = db.Empleados.Where(p => p.Id_users.Equals(iduser)).First();
 
-                if (user.Active && (user.Puesto.Equals("Control Finanzas") || user.Puesto.Equals("Director Administrativo")))
+                if (user.Active && (user.Puesto.Equals("Control finanzas") || user.Puesto.Equals("Director Administrativo")))
                 {
                     if (ModelState.IsValid)
                     {
@@ -106,7 +106,7 @@ namespace Ecommerce.Controllers
                 var iduser = User.Identity.GetUserId();
                 Empleados user = db.Empleados.Where(p => p.Id_users.Equals(iduser)).First();
 
-                if (user.Active && (user.Puesto.Equals("Control Finanzas") || user.Puesto.Equals("Director Administrativo")))
+                if (user.Active && (user.Puesto.Equals("Control finanzas") || user.Puesto.Equals("Director Administrativo")))
                 {
                     return View();
                 }
@@ -128,7 +128,7 @@ namespace Ecommerce.Controllers
                 var iduser = User.Identity.GetUserId();
                 Empleados user = db.Empleados.Where(p => p.Id_users.Equals(iduser)).First();
 
-                if (user.Active && (user.Puesto.Equals("Control Finanzas") || user.Puesto.Equals("Director Administrativo")))
+                if (user.Active && (user.Puesto.Equals("Control finanzas") || user.Puesto.Equals("Director Administrativo")))
                 {
 
 
@@ -171,7 +171,7 @@ namespace Ecommerce.Controllers
                 var iduser = User.Identity.GetUserId();
                 Empleados user = db.Empleados.Where(p => p.Id_users.Equals(iduser)).First();
 
-                if (user.Active && (user.Puesto.Equals("Control Finanzas") || user.Puesto.Equals("Director Administrativo")))
+                if (user.Active && (user.Puesto.Equals("Control finanzas") || user.Puesto.Equals("Director Administrativo")))
                 {
 
                     if (ModelState.IsValid)
@@ -204,7 +204,7 @@ namespace Ecommerce.Controllers
                 var iduser = User.Identity.GetUserId();
                 Empleados user = db.Empleados.Where(p => p.Id_users.Equals(iduser)).First();
 
-                if (user.Active && (user.Puesto.Equals("Control Finanzas") || user.Puesto.Equals("Director Administrativo")))
+                if (user.Active && (user.Puesto.Equals("Control finanzas") || user.Puesto.Equals("Director Administrativo")))
                 {
                     if (id == null)
                     {
@@ -239,7 +239,7 @@ namespace Ecommerce.Controllers
                 var iduser = User.Identity.GetUserId();
                 Empleados user = db.Empleados.Where(p => p.Id_users.Equals(iduser)).First();
 
-                if (user.Active && (user.Puesto.Equals("Control Finanzas") || user.Puesto.Equals("Director Administrativo")))
+                if (user.Active && (user.Puesto.Equals("Control finanzas") || user.Puesto.Equals("Director Administrativo")))
                 {
 
 
@@ -292,7 +292,7 @@ namespace Ecommerce.Controllers
                 var iduser = User.Identity.GetUserId();
                 Empleados user = db.Empleados.Where(p => p.Id_users.Equals(iduser)).First();
 
-                if (user.Active && (user.Puesto.Equals("Control Finanzas") || user.Puesto.Equals("Director Administrativo")))
+                if (user.Active && (user.Puesto.Equals("Control finanzas") || user.Puesto.Equals("Director Administrativo")))
                 {
 
                     var productos = db.Productos.AsQueryable();
@@ -318,7 +318,7 @@ namespace Ecommerce.Controllers
             {
                 var iduser = User.Identity.GetUserId();
                 Empleados user = db.Empleados.Where(p => p.Id_users.Equals(iduser)).First();
-                if (user.Active && (user.Puesto.Equals("Control Finanzas") || user.Puesto.Equals("Director Administrativo")))
+                if (user.Active && (user.Puesto.Equals("Control finanzas") || user.Puesto.Equals("Director Administrativo")))
                 {
                     List<Carrito> detalle_proxy = (List<Carrito>)Session["detalle_compras"];
 
@@ -383,7 +383,7 @@ namespace Ecommerce.Controllers
                 var iduser = User.Identity.GetUserId();
                 Empleados user = db.Empleados.Where(p => p.Id_users.Equals(iduser)).First();
 
-                if (user.Active && (user.Puesto.Equals("Control Finanzas") || user.Puesto.Equals("Director Administrativo")))
+                if (user.Active && (user.Puesto.Equals("Control finanzas") || user.Puesto.Equals("Director Administrativo")))
                 {
 
                     var productos = db.Productos.AsQueryable();
@@ -445,7 +445,7 @@ namespace Ecommerce.Controllers
             {
                 var iduser = User.Identity.GetUserId();
                 Empleados user = db.Empleados.Where(p => p.Id_users.Equals(iduser)).First();
-                if (user.Active && (user.Puesto.Equals("Control Finanzas") || user.Puesto.Equals("Director Administrativo")))
+                if (user.Active && (user.Puesto.Equals("Control finanzas") || user.Puesto.Equals("Director Administrativo")))
                 {
                     List<Carrito> carro = (List<Carrito>)Session["detalle_compras"];
                     int index = isExist(id);
@@ -470,7 +470,7 @@ namespace Ecommerce.Controllers
                 var iduser = User.Identity.GetUserId();
                 Empleados user = db.Empleados.Where(p => p.Id_users.Equals(iduser)).First();
 
-                if (user.Active && (user.Puesto.Equals("Control Finanzas") || user.Puesto.Equals("Director Administrativo")))
+                if (user.Active && (user.Puesto.Equals("Control finanzas") || user.Puesto.Equals("Director Administrativo")))
                 {
                     List<Carrito> carro = (List<Carrito>)Session["detalle_compras"];
                     int index = isExist(id);
@@ -498,7 +498,7 @@ namespace Ecommerce.Controllers
                 var iduser = User.Identity.GetUserId();
                 Empleados user = db.Empleados.Where(p => p.Id_users.Equals(iduser)).First();
 
-                if (user.Active && (user.Puesto.Equals("Control Finanzas") || user.Puesto.Equals("Director Administrativo")))
+                if (user.Active && (user.Puesto.Equals("Control finanzas") || user.Puesto.Equals("Director Administrativo")))
                 {
 
                     Carrito carrito = (Carrito)Session["editar"];

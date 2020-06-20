@@ -124,7 +124,7 @@ namespace Ecommerce.Controllers
                 Status = 1,
                 DetalleVentas = detalle,
                 FechaVenta = DateTime.Now,
-                Total =  total,
+                Total = (decimal) total,
                 TipoPago = tipoPago
 
             };

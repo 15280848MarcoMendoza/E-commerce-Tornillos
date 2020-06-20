@@ -25,20 +25,20 @@
                       
                         <hr />
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.UserName, new { @class = "control-label" })
-
-                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control w-300" })
-                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
-
-                    <br />
-
-                    @Html.LabelFor(m => m.Password, new { @class = "control-label" })
-
-                    @Html.PasswordFor(m => m.Password, new { @class = "form-control w-300" })
-                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-
-                </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.UserName, new { @class = "control-label" })
+                            <div class="col-12">
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control w-100" })
+                                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                            <div class="col-12">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control w-100" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
                         <div class="form-group">
                                 <div class="checkbox">
                                     @Html.CheckBoxFor(m => m.RememberMe)
@@ -46,10 +46,10 @@
                                 </div>
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="Iniciar sesión" class="btn btn-danger" />
+                            <input type="submit" value="Iniciar sesión" class="btn btn-primary " />
                         </div>
                         <p>
-                            <a href="@Url.Action("Register")" class="btn btn-outline-success">
+                            <a href="@Url.Action("Register")" class="btn btn-primary">
                                 Registro
                             </a>
                             

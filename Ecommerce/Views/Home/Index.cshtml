@@ -1,34 +1,27 @@
 ﻿@using Ecommerce.Models;
 @{
-    ViewBag.Title = "Home";
+    ViewBag.Title = "BIENVENIDO";
     var Sales = (List<Productos>)ViewBag.Sales;
     var Offers = (List<Productos>)ViewBag.Offers;
 }
 <div id="page">
     <div class="container-fluid p-0">
-
-
         <aside id="colorlib-hero">
             <div class="flexslider">
                 <ul class="slides">
                     <li>
-
                         <div class="overlay">
-                            <img src="~/Content/@Sales[0].Url_image">
+                            <img src="~/Content/img/hexa.jpg">
                         </div>
-
                         <div class="container-fluid">
-
                             <div class="row">
-
                                 <div class="col-md-6 col-md-offset-3 col-md-pull-2 col-sm-12 col-xs-12 slider-text">
-
                                     <div class="slider-text-inner">
                                         <div class="desc">
                                             <h1 class="head-1"><p> </p></h1>
-                                            <h3 class="head-2">@Sales[0].Nombre</h3>
-                                            <h2 class="head-3">$@Sales[0].Precio_final MXN</h2>
-                                            <p class="category"><span>@Sales[0].Marca</span></p>
+                                            <h3 class="head-2">TORNILLO HEXAGONAL de prueba tienda dos para </h3>
+                                            <h2 class="head-3">$@Sales[0].Precio_final MXN UD</h2>
+                                            <p class="category"><span>Aluminio</span></p>
                                             <a href="@Url.Action("Comprar", "Carrito" , new { id=Sales[0].Id })" class="btn btn-primary">
                                                 <i class="icon-shopping-cart"></i>
                                             </a>
@@ -42,7 +35,7 @@
                     </li>
                     <li>
                         <div class="overlay">
-                            <img src="~/Content/@Sales[1].Url_image">
+                            <img src="~/Content/img/tecanela.jpg">
                         </div>
                         <div class="container-fluid">
                             <div class="row">
@@ -50,9 +43,9 @@
                                     <div class="slider-text-inner">
                                         <div class="desc">
                                             <h1 class="head-1"><p> </p></h1>
-                                            <h3 class="head-2">@Sales[1].Nombre</h3>
+                                            <h3 class="head-2">TORNILLO METRICO</h3>
                                             <h2 class="head-3">$@Sales[1].Precio_final MXN</h2>
-                                            <p class="category"><span>@Sales[1].Marca</span></p>
+                                            <p class="category"><span>Aluminio</span></p>
                                             <p>
                                                 <a href="@Url.Action("Comprar", "Carrito", new { id = Sales[1].Id })" class="btn btn-primary">
                                                     <i class="icon-shopping-cart"></i>
@@ -66,7 +59,7 @@
                     </li>
                     <li>
                         <div class="overlay">
-                            <img src="~/Content/@Sales[2].Url_image">
+                            <img src="~/Content/img/teboldo.jpg">
                         </div>
                         <div class="container-fluid">
                             <div class="row">
@@ -74,9 +67,9 @@
                                     <div class="slider-text-inner">
                                         <div class="desc">
                                             <h1 class="head-1"><p> </p></h1>
-                                            <h3 class="head-2">@Sales[2].Nombre</h3>
-                                            <h2 class="head-3">$@Sales[2].Precio_final MXN</h2>
-                                            <p class="category"><span>@Sales[2].Marca</span></p>
+                                            <h3 class="head-2">TORNILLO NIQUEL</h3>
+                                            <h2 class="head-3">$@Sales[2].Precio_final MXN UD</h2>
+                                            <p class="category"><span>Niquel</span></p>
                                             <a href="@Url.Action("Comprar", "Carrito", new { id = Sales[2].Id })" class="btn btn-primary">
                                                 <i class="icon-shopping-cart"></i>
                                             </a>
@@ -100,51 +93,94 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3 text-center colorlib-heading">
-                                        <h2><span>Productos populares</span></h2>
-                                        <p>We love to tell our successful far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                        <h2><span>Cátalogo de productos</span></h2>
+                                        <p></p>
                                     </div>
                                 </div>
                                 <div class="row">
 
-
-                                    @for (int i = 1; i < 5 && i < Sales.Count; i++)
-                                    {
-                                        <div class="col-md-3 text-center">
-
-                                            <div class="product-entry">
-                                                <div class="product-img">
-                                                    <p class="tag"><span class="new">@Sales[i].Nombre</span></p>
-                                                    <img class="mx-auto d-block" src="~/Content/@Sales[i].Url_image" alt="Alternate Text" width="250" height="300" />
-                                                    <div class="cart">
-                                                        <p>
-                                                            <span class="addtocart"><a href="@Url.Action("Comprar", "Carrito", new { id = Sales[i].Id })"><i class="icon-shopping-cart"></i></a></span>
-
-
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="desc">
-                                                    <h3><a href="shop.html">@Sales[i].Nombre</a></h3>
-                                                    <p class="price"><span>$@Sales[i].Precio_final</span></p>
+                                    <div class="col-md-3 text-center">
+                                        <div class="product-entry">
+                                            <div class="product-img">
+                                                <p class="tag"><span class="new">TORNILLO CABEZA PLANA</span></p>
+                                                <img class="mx-auto d-block" src="~/Content/img/uno.jpg" alt="Alternate Text" width="250" height="300" />
+                                                <div class="cart">
+                                                    <p>
+                                                        <span class="addtocart"><a href="@Url.Action("Comprar", "Carrito", new { id = Sales[1].Id })"><i class="icon-shopping-cart"></i></a></span>
+                                                    </p>
                                                 </div>
                                             </div>
+                                            <div class="desc">
+                                                <h3><a href="shop.html">TORNILLO CABEZA PLANA</a></h3>
+                                                <p class="price"><span>$15 MXN</span></p>
+                                            </div>
                                         </div>
-                                    }
+                                    </div>
+
+                                    <div class="col-md-3 text-center">
+                                        <div class="product-entry">
+                                            <div class="product-img">
+                                                <p class="tag"><span class="new">PIJA PARA MADERA</span></p>
+                                                <img class="mx-auto d-block" src="~/Content/img/dos.png" alt="Alternate Text" width="250" height="300" />
+                                                <div class="cart">
+                                                    <p>
+                                                        <span class="addtocart"><a href="@Url.Action("Comprar", "Carrito", new { id = Sales[2].Id })"><i class="icon-shopping-cart"></i></a></span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="desc">
+                                                <h3><a href="shop.html">PIJA PARA MADERA</a></h3>
+                                                <p class="price"><span>$8 MXN</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 text-center">
+                                        <div class="product-entry">
+                                            <div class="product-img">
+                                                <p class="tag"><span class="new">CABEZA CON ARMELLA</span></p>
+                                                <img class="mx-auto d-block" src="~/Content/img/tres.jpg" alt="Alternate Text" width="250" height="300" />
+                                                <div class="cart">
+                                                    <p>
+                                                        <span class="addtocart"><a href="@Url.Action("Comprar", "Carrito", new { id = Sales[3].Id })"><i class="icon-shopping-cart"></i></a></span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="desc">
+                                                <h3><a href="shop.html">CABEZA CON ARMELLA</a></h3>
+                                                <p class="price"><span>$8 MXN</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 text-center">
+                                        <div class="product-entry">
+                                            <div class="product-img">
+                                                <p class="tag"><span class="new">CABEZA DE CRUZ</span></p>
+                                                <img class="mx-auto d-block" src="~/Content/img/cuatro.jpg" alt="Alternate Text" width="250" height="300" />
+                                                <div class="cart">
+                                                    <p>
+                                                        <span class="addtocart"><a href="@Url.Action("Comprar", "Carrito", new { id = Sales[4].Id })"><i class="icon-shopping-cart"></i></a></span>
+
+
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="desc">
+                                                <h3><a href="shop.html">CABEZA DE CRUZ</a></h3>
+                                                <p class="price"><span>$8 MXN</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
-
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>
-
 <div class="gototop js-top">
     <a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
 </div>
