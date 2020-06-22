@@ -1,0 +1,48 @@
+﻿@using Ecommerce.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="container-fluid">
+    <div class="row m-5 table-responsive">
+        <table class="table shadow table-dark">
+            <thead class=" text-center">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Tipo de pago</th>
+                    <th scope="col">Fecha de compra</th>
+                    <th scope="col">Total de compra</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+                <!--
+     <tr>
+         <th scope="col"><input class="input-table" type="text" /></th>
+         <th scope="col"><input class="input-table" type="text" /></th>
+         <th scope="col"><input class="input-table" type="text" /></th>
+         <th scope="col"><input class="input-table" type="text" /></th>
+         <th scope="col"><input class="input-table" type="text" /></th>
+         <th></th>
+     </tr>-->
+            </thead>
+            <tbody class="text-center">
+                @foreach (Ventas venta in ViewBag.Ventas)
+                {
+                    <tr>
+                        <td>@venta.Id</td>
+                        <td>@venta.Cliente.Nombre</td>
+                        <td>@venta.TipoPago</td>
+                        <td>@venta.FechaVenta</td>
+                        <td>@venta.Total</td>
+                        <td class="text-center">
+                            <a href="@Url.Action("DetalleVentas","Ventas",new { Id = venta.Id})">
+                            <i class="fas fa-info "></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

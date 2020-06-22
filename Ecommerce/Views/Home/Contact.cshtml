@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Contacto";
+}
+
+<div id="colorlib-contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <h3>Informacion de Contacto</h3>
+                <div class="row contact-info-wrap">
+                    <div class="col-md-3">
+                        <p>
+                            <span><i class="icon-location"></i></span> Instituto Tecnologico de Toluca,
+                            Av.Tecnologico #2313, Metepec
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p><span><i class="icon-phone3"></i></span> <a href="tel://1235235598"> + 1235 2355 98</a></p>
+                    </div>
+                    <div class="col-md-3">
+                        <p><span><i class="icon-paperplane"></i></span> <a href="mailto:info.te-endulso@te-endulso.com">info.te-endulso@te-endulso.com</a></p>
+                    </div>
+                    <div class="col-md-3">
+                        <p><span><i class="icon-globe"></i></span> <a href="#">te-endulso.com</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10 col-md-offset-1">
+                <div class="contact-wrap">
+                    <h3>Ponte en contacto con nostros</h3>
+                    <form method="post">
+                        <div class="row form-group">
+                            <div class="col-md-6 padding-bottom">
+                                <label for="fname">Nombre</label>
+                                <input type="text"  class="form-control" placeholder="Tu nombre" name="nombre">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lname">Apellido</label>
+                                <input type="text"  class="form-control" placeholder="Tu apellido" name="apellido">
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" placeholder="Tu email" name="correoo">
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label for="subject">Tema</label>
+                                <input type="text" class="form-control" placeholder="De que quieres hablar" name="asunto">
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label for="message">Mensaje</label>
+                                <textarea name="mensaje" cols="30" rows="10" class="form-control" placeholder="Dinos algo"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <input type="submit" value="Mandar mensaje" class="btn btn-primary" id="enviar">
+                        </div>
+                    </form>
+
+                    <h3 style=»color:blue»>
+                        @ViewBag.Mensaje
+                    </h3>
+                    <br />
+                    <h3 style=»color:red»>
+                        @ViewBag.Error
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
