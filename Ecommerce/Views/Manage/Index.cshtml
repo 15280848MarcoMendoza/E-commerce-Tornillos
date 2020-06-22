@@ -1,0 +1,74 @@
+﻿@model Ecommerce.Models.IndexViewModel
+@using Ecommerce.Models
+
+@{
+    ViewBag.Title = "Manage";
+    var cliente = ViewBag.cliente;
+    var usuario = ViewBag.User1;
+    var gender = ViewBag.gender;
+    var nac = ViewBag.nac;
+    var noTarjeta = ViewBag.noTarjeta;
+}
+
+
+
+    <div class="container" style="margin-top:33px;margin-bottom:15px;">
+        <div class="card bg-semitanparente">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href="/Manage/Historial" class="btn btn-primary"><i class="fas fa-list"></i>  Historial de Compras</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="/Manage/Edit" class="btn btn-primary"><i class="fas fa-edit"></i>  Modificar información</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="/Manage/ChangePassword" class="btn btn-primary"><i class="fas fa-lock"></i>  Cambiar Contraseña</a>
+
+                    </div>
+                </div>
+                <div class="row" style="margin-top:20px;">
+                    <div class="col-md-6">
+                        <div class="card" style="height:419px;">
+                            <div class="card-header">
+                                <h5>Datos Personales</h5>
+                            </div>
+                            <div class="card-body">
+                                <p><b>Nombre: </b>@cliente.Nombre</p>
+                                <p><b>Correo: </b>@usuario.Email</p>
+                                <p><b>Sexo: </b>@gender</p>
+                                <p><b>Fecha de Nacimiento: </b>@nac</p>
+                                <p><b>Nombre de usuario: </b>@usuario.UserName</p>
+                                <p><b>Tipo de Tarjeta: </b>@cliente.Tipo_targeta</p>
+                                <p><b>Número de tarjeta: </b>@noTarjeta</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Datos de envío</h5>
+                            </div>
+                            <div class="card-body">
+                                <p><b>Estado: </b>@cliente.Estado</p>
+                                <p><b>Municipio: </b>@cliente.Municipio</p>
+                                <p><b>Código Postal: </b>@cliente.CodigoPostal</p>
+                                <p><b>Colonia: </b>@cliente.Colonia</p>
+                                <p><b>Calle: </b>@cliente.Calle</p>
+                                <p><b>No. Interior: </b>@cliente.NoInterior</p>
+                                <p><b>No. Exterior: </b>@cliente.NoExterior</p>
+                                <p><b>Referencia: </b>@cliente.Referencia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+
+
+
+

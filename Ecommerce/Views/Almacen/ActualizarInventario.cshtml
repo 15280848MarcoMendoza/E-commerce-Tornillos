@@ -1,0 +1,105 @@
+﻿@model Ecommerce.Models.Productos
+@using Ecommerce.Models
+@{
+    ViewBag.Title = "ActualizarInventario";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center">Actualizar Inventario</h2>
+
+@using (Html.BeginForm("ActualizarInventario", "Almacen", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <h4 class="text-center">Producto</h4>
+        <hr />
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        <div class="row justify-content-around">
+            <div class="col-md-6">
+                <div class="col-md-offset-2">
+                    <dd>
+                        <img src="~/Content/@Model.Url_image" style="height:500px; width:100%" />
+                    </dd>
+                </div>
+            </div>
+            <div class="col-md-offset-6">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label" })
+                    </dt>
+                    <dd>
+                        @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                    </dd>
+                    <dt>
+                        @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label" })
+                    </dt>
+                    <dd>
+                        @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                    </dd>
+                    <dt>
+                        @Html.LabelFor(model => model.Marca, htmlAttributes: new { @class = "control-label" })
+                    </dt>
+                    <dd>
+                        @Html.EditorFor(model => model.Marca, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        @Html.ValidationMessageFor(model => model.Marca, "", new { @class = "text-danger" })
+                    </dd>
+
+                    <dt>
+                        @Html.LabelFor(model => model.Precio_final, htmlAttributes: new { @class = "control-label" })
+                    </dt>
+                    <dd>
+                        @Html.EditorFor(model => model.Precio_final, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        @Html.ValidationMessageFor(model => model.Precio_final, "", new { @class = "text-danger" })
+                    </dd>
+                    <dt>
+                        @Html.LabelFor(model => model.Cantidad_ventas, htmlAttributes: new { @class = "control-label" })
+                    </dt>
+                    <dd>
+                        @Html.EditorFor(model => model.Cantidad_ventas, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        @Html.ValidationMessageFor(model => model.Cantidad_ventas, "", new { @class = "text-danger" })
+                    </dd>
+                    <dt>
+
+                        @Html.LabelFor(model => model.Url_image, htmlAttributes: new { @class = "control-label " })
+
+
+                    </dt>
+                    <dd>
+                        @Html.EditorFor(model => model.Url_image, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        @Html.ValidationMessageFor(model => model.Url_image, "", new { @class = "text-danger" })
+                    </dd>
+                    <dt>
+                        @Html.LabelFor(model => model.stock, htmlAttributes: new { @class = "control-label" })
+                    </dt>
+                    <dd>
+                       
+                        @Html.EditorFor(model => model.stock, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.stock, "", new { @class = "text-danger" })
+                    </dd>
+
+
+
+                </dl>
+                <div>
+                    <input type="submit" value="Save" class="btn btn-info" onclick="creado()" />
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+}
+
+
+<script>
+    function creado() {
+        alert("Producto Actualizado");
+    }
+</script>

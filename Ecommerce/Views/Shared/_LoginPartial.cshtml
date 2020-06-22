@@ -1,0 +1,45 @@
+﻿@using Microsoft.AspNet.Identity
+
+
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+       
+            <li>
+                <a class="btn" href="@Url.Action("Index", "Manage")">
+                    @User.Identity.GetUserName()
+                    <i class="fas fa-user"></i>
+                </a>
+            </li>
+            <li class="mx-3"></li>
+            <li><a class="btn" href="javascript:document.getElementById('logoutForm').submit()">
+                Cerrar session
+                <i class="fas fa-sign-out-alt"></i>
+            </a></li>
+        
+    }
+}
+else
+{
+
+   
+        
+            <li>
+                @Html.ActionLink("Registrarse", "Register", "Account",
+                routeValues: null,
+                htmlAttributes: new { id = "registerLink"})
+            </li>
+            <li>
+                @Html.ActionLink("Iniciar sesion", "Login", "Account", routeValues: null,
+                htmlAttributes: new { id = "loginLink"})
+            </li>
+      
+
+
+
+
+}

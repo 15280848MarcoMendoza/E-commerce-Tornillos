@@ -1,0 +1,74 @@
+﻿@model PagedList.IPagedList<Ecommerce.Models.DetalleCompras>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+
+@{
+    ViewBag.Title = "Detalle_Compra";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Inventario</h2>
+@using (@Html.BeginForm("Detalle_Compra", "Compras", FormMethod.Get))
+{
+    <b> Buscar por:</b>
+    @Html.RadioButton("searchBy", "Nombre", true, new { htmlAttributes = new{  @class = "form-check-input" } }) <text>
+        Nombre</text>
+    @Html.RadioButton("searchBy","Cantidad", new { htmlAttributes = new {@class = "form-check-input" } }) <text>
+        Cantidad</text>
+    <br />
+    @Html.TextBox("search", ViewBag.CurrentFilter as string)
+    <input type="submit" value="Buscar" class="btn btn-info" />
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Nombre", "Detalle_Compra", new { sortBy = ViewBag.NombreSort, currentsearch=ViewBag.SearchBy,currentFilter = ViewBag.CurrentFilter, searchBy = Request["searchBy"], search = Request["search"] })
+        </th>
+        <th>
+            @Html.ActionLink("Costro Unitario", "Detalle_Compra", new { sortBy = ViewBag.CostoUnitarioSort, currentsearch=ViewBag.SearchBy,currentFilter = ViewBag.CurrentFilter, searchBy = Request["searchBy"], search = Request["search"] })
+        </th>
+        <th>
+            @Html.ActionLink("Costro Venta", "Detalle_Compra", new { sortBy = ViewBag.CostoVentaSort,currentsearch=ViewBag.SearchBy, currentFilter = ViewBag.CurrentFilter, searchBy = Request["searchBy"], search = Request["search"] })
+        </th>
+        <th>
+            @Html.ActionLink("Cantidad", "Detalle_Compra", new { sortBy = ViewBag.CantidadSort,currentsearch=ViewBag.SearchBy, currentFilter = ViewBag.CurrentFilter, searchBy = Request["searchBy"], search = Request["search"] })
+        </th>
+
+        <th>
+            @Html.ActionLink("Fecha de vencimiento", "Detalle_Compra", new { sortBy = ViewBag.FechaSort,currentsearch=ViewBag.SearchBy, currentFilter = ViewBag.CurrentFilter, searchBy = Request["searchBy"], search = Request["search"] })
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.Productos.activo)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Productos.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Productos.Costo_unitario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Productos.Precio_final)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cantidad)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha_vencimiento)
+                </td>
+            </tr>
+        }
+
+    }
+
+</table>
+<br />
+Pagina @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Detalle_Compra",
+    new { page, sortBy = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

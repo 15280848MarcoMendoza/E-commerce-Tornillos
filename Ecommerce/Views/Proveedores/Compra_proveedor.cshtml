@@ -1,0 +1,120 @@
+﻿@using Ecommerce.Models;
+@model Ecommerce.Models.DetalleCompras
+@{
+    ViewBag.Title = "Compra proveedor";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>Compra proveedor</h2>
+<div class="form-horizontal">
+    <div class="row">
+        <div class="col-md-1">
+            <label>Proveedor:</label>
+        </div>
+        <div class="col-md-4">
+            @ViewBag.Compra_proveedor.Nombre
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+            <label>Tipo de Pago:</label>
+        </div>
+        <div class="col-md-4">
+            <select>
+                <option value="3">Contado</option>
+            </select>
+        </div>
+
+
+    </div>
+
+    <div class="text-right">
+        <form>
+            <p>
+                <button class="btn btn-success" formaction="/Proveedores/Agregar_Producto">Agregar Producto</button>
+            </p>
+        </form>
+    </div>
+</div>
+<table class="table">
+    <tr>
+
+        <th>
+            Productos
+        </th>
+        <th>
+            Cantidad
+        </th>
+        <th>
+            Costo Unitario
+        </th>
+        <th>
+            Tiempo de vida(Meses)
+        </th>
+        <th>
+            Tiempo de vida(Dias)
+        </th>
+        <th>
+            Subtotal
+        </th>
+       <th></th>
+    </tr>
+    @if (ViewBag.Compra_detalles != null)
+    {
+        foreach (Carrito item in ViewBag.Compra_detalles)
+        {
+            <tr>
+
+                <td>
+                    @item.Productos.Nombre
+                </td>
+                <td>
+                    @item.Cantidad
+                </td>
+                <td>
+                    @item.Productos.Costo_unitario
+                </td>
+                <td>
+                    @item.Productos.Time_Mount
+                </td>
+                <td>
+                    @item.Productos.Time_Day
+                </td>
+                <td>
+                    @(item.Productos.Costo_unitario * item.Cantidad)
+                </td>
+                <td>
+                    @Html.ActionLink("Cambiar cantidad", "Editar_compra", new { id = item.Productos.Id }) |
+                    @Html.ActionLink("Eliminar compra", "Eliminar_compra", new { id = item.Productos.Id })
+                </td>
+                
+
+            </tr>
+        }
+    }
+
+
+</table>
+<div class="form-horizontal">
+    <div class="row">
+        <div class="col-md-1">
+            <label>Total:</label>
+        </div>
+        <div class="col-md-11">
+            @if (ViewBag.Compra_detalles != null)
+            {
+
+                List<Carrito> carro = (List<Carrito>)Session["detalle_compras"];
+                var total = carro.Sum(item => item.Productos.Costo_unitario * item.Cantidad);
+
+                @total
+            }
+        </div>
+    </div>
+    @using (@Html.BeginForm("Comprar", "Proveedores", FormMethod.Post))
+    {
+        <button type="submit" class="btn btn-success">Pagar <i class="fas fa-money-check-alt"></i></button>
+    }
+
+</div>
+
+
