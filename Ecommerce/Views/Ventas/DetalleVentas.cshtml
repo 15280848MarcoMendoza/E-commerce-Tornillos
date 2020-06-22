@@ -1,0 +1,39 @@
+﻿@using Ecommerce.Models
+@{
+    ViewBag.Title = "DetalleVentas";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row m-5">
+        <table class="table shadow table-dark">
+            <thead class="text-center">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Catidad</th>
+                    <th scope="col">Subtotal</th>
+                </tr>
+               <!-- <tr>
+                    <th scope="col"><input class="input-table" type="text" /></th>
+                    <th scope="col"><input class="input-table" type="text" /></th>
+                    <th scope="col"><input class="input-table" type="text" /></th>
+                    <th scope="col"><input class="input-table" type="text" /></th>
+                </tr>-->
+            </thead>
+            <tbody class="text-center">
+                @foreach (DetalleVenta Dventa in ViewBag.Detalle)
+                {
+                    <tr>
+                        <td>@Dventa.Id</td>
+                        <td>@Dventa.Producto.Nombre</td>
+                        <td>@Dventa.Cantidad</td>
+                        <td>@Dventa.Subtotal</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+

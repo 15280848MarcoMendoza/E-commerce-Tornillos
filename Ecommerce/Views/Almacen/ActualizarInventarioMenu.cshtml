@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Ecommerce.Models.DetalleVentaReporteSalida>
+@{
+    ViewBag.Title = "ActualizarInventarioMenu";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Actualizar Inventario</h2>
+
+<h6>Seleccione reporte de salida</h6>
+@using (@Html.BeginForm("ActualizarInventarioMenu", "Almacen", FormMethod.Get))
+{
+    <b> Buscar por:</b>
+    @Html.RadioButton("searchBy", "Nombre", true, new { htmlAttributes = new { @class = "form-check-input" } }) <text>
+        Nombre</text>
+    @Html.RadioButton("searchBy", "Id", new { htmlAttributes = new { @class = "form-check-input" } }) <text>
+        Id</text>
+    <br />
+    @Html.TextBox("search", ViewBag.CurrentFilter as string)
+
+    <input type="submit" value="Buscar" class="btn btn-info" />
+}
+<table class="table">
+    <tr>
+        <th>
+            Id de reporte de salida
+        </th>
+        <th>
+            Nombre de reporte de salida
+        </th>
+        <th>
+            Fecha
+        </th>
+        <th>
+            Producto
+        </th>
+        <th>
+            Cantidad
+        </th>
+        <th>
+
+        </th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReporteSalida.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReporteSalida.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReporteSalida.Fecha)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.ReporteSalida.Producto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReporteSalida.Cantidad)
+            </td>
+            <td>
+                <p>
+                    @Html.ActionLink("Actualizar Inventario", "ActualizarInventario", new { id = item.DetalleVenta.Producto.Id})
+                </p>
+            </td>
+        </tr>
+
+
+    }
+</table>
+<br />
+
+

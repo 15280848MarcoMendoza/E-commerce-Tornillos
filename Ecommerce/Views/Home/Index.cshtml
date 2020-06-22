@@ -1,0 +1,150 @@
+﻿@using Ecommerce.Models;
+@{
+    ViewBag.Title = "Home Page";
+    var Sales = (List<Productos>)ViewBag.Sales;
+    var Offers = (List<Productos>)ViewBag.Offers;
+}
+<div id="page">
+    <div class="container-fluid p-0">
+
+
+        <aside id="colorlib-hero">
+            <div class="flexslider">
+                <ul class="slides">
+                    <li>
+
+                        <div class="overlay">
+                            <img src="~/Content/@Sales[0].Url_image">
+                        </div>
+
+                        <div class="container-fluid">
+
+                            <div class="row">
+
+                                <div class="col-md-6 col-md-offset-3 col-md-pull-2 col-sm-12 col-xs-12 slider-text">
+
+                                    <div class="slider-text-inner">
+                                        <div class="desc">
+                                            <h1 class="head-1"><p> </p></h1>
+                                            <h3 class="head-2">@Sales[0].Nombre</h3>
+                                            <h2 class="head-3">$@Sales[0].Precio_final MXN</h2>
+                                            <p class="category"><span>@Sales[0].Marca</span></p>
+                                            <a href="@Url.Action("Comprar", "Carrito" , new { id=Sales[0].Id })" class="btn btn-primary">
+                                                <i class="icon-shopping-cart"></i>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li>
+                        <div class="overlay">
+                            <img src="~/Content/@Sales[1].Url_image">
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3 col-md-pull-2 col-sm-12 col-xs-12 slider-text">
+                                    <div class="slider-text-inner">
+                                        <div class="desc">
+                                            <h1 class="head-1"><p> </p></h1>
+                                            <h3 class="head-2">@Sales[1].Nombre</h3>
+                                            <h2 class="head-3">$@Sales[1].Precio_final MXN</h2>
+                                            <p class="category"><span>@Sales[1].Marca</span></p>
+                                            <p>
+                                                <a href="@Url.Action("Comprar", "Carrito", new { id = Sales[1].Id })" class="btn btn-primary">
+                                                    <i class="icon-shopping-cart"></i>
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="overlay">
+                            <img src="~/Content/@Sales[2].Url_image">
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3 col-md-push-3 col-sm-12 col-xs-12 slider-text">
+                                    <div class="slider-text-inner">
+                                        <div class="desc">
+                                            <h1 class="head-1"><p> </p></h1>
+                                            <h3 class="head-2">@Sales[2].Nombre</h3>
+                                            <h2 class="head-3">$@Sales[2].Precio_final MXN</h2>
+                                            <p class="category"><span>@Sales[2].Marca</span></p>
+                                            <a href="@Url.Action("Comprar", "Carrito", new { id = Sales[2].Id })" class="btn btn-primary">
+                                                <i class="icon-shopping-cart"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <div class="container-fluid ">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="row">
+
+
+                        <div class="colorlib-shop">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6 col-md-offset-3 text-center colorlib-heading">
+                                        <h2><span>Productos populares</span></h2>
+                                        <p>We love to tell our successful far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+
+                                    @for (int i = 1; i < 5 && i < Sales.Count; i++)
+                                    {
+                                        <div class="col-md-3 text-center">
+
+                                            <div class="product-entry">
+                                                <div class="product-img">
+                                                    <p class="tag"><span class="new">@Sales[i].Nombre</span></p>
+                                                    <img class="mx-auto d-block" src="~/Content/@Sales[i].Url_image" alt="Alternate Text" width="250" height="300" />
+                                                    <div class="cart">
+                                                        <p>
+                                                            <span class="addtocart"><a href="@Url.Action("Comprar", "Carrito", new { id = Sales[i].Id })"><i class="icon-shopping-cart"></i></a></span>
+
+
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="desc">
+                                                    <h3><a href="shop.html">@Sales[i].Nombre</a></h3>
+                                                    <p class="price"><span>$@Sales[i].Precio_final</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+</div>

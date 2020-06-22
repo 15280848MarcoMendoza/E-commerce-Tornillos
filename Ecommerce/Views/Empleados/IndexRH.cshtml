@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Ecommerce.Models.Empleados>
+@using Microsoft.AspNet.Identity.EntityFramework
+@using Ecommerce.Models;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container-fluid">
+
+    <div class="row justify-content-center mt-5 mx-3">
+
+        <div class="alert alert-warning" role="alert">
+            Los empleados con el icono <i class="fas fa-exclamation-circle" style="color: #ff9f0e"></i> no han concluido su registro. Para asignar los datos faltantes dirijase a la sección de Recursos humanos.
+        </div>
+
+        <table class="table">
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Area)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Puesto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sexo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Salario)
+                </th>
+
+                <th>
+                   Fecha de Nacimiento
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td>
+                @if (!item.Registro_Completo)
+                {
+                    <i class="fas fa-exclamation-circle" style="color: #ff9f0e"></i>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Puesto)
+            </td>
+            <td>
+                @(item.Sexo ? "Hombre" : "Mujer")
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha_Nacimeinto)
+            </td>
+            <td>
+                @Html.ActionLink("Ver", "Details", new { id = item.Id }, new { @class = "btn btn-primary text-white" })
+                @Html.ActionLink("Editar", "EditRH", new { id = item.Id }, new { @class = "btn btn-primary text-white" })
+            </td>
+        </tr>
+            }
+
+        </table>
+    </div>
+</div>
+

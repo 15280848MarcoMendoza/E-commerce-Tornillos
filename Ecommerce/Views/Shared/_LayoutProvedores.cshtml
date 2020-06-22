@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/app.css")
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+          crossorigin="anonymous">
+
+</head>
+<body>
+    <nav class="navbar bg-primary navbar-expand-lg navbar-dark px-5">
+        <a href="#" class="navbar-brand" title="List View">
+            <img alt="List View" src="@Url.Content("~/Content/img/logo.png")" class="img-logo">
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item active">
+                    <div class="dropdown">
+                        <button class="btn nav-link dropdown-toggle" type="button" data-toggle="dropdown">
+                            Proveedores
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Ver Provedorees", "Index", "Proveedores", new object { }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Ver Historial", "Index", "Compras", new object { }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Ver Inventario", "Detalle_Compra", "Compras", new object { }, new { @class = "nav-link" })</li>
+                        </ul>
+                    </div>
+                    
+                </li>
+            </ul>
+            <ul>
+                @Html.Partial("_LoginPartial")
+            </ul>
+        </div>
+    </nav>
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <footer class="footer">
+        <div class="row justify-content-center">
+            <div class="col-10 text-center">
+                <hr class="style-two" />
+                <p>&copy; Organic bread S.A de C.V - @DateTime.Now.Year - Todos los derechos reservados </p>
+            </div>
+        </div>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="https://kit.fontawesome.com/d9e9a292ac.js" crossorigin="anonymous"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

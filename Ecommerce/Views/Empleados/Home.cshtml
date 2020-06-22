@@ -1,0 +1,59 @@
+﻿@model Ecommerce.Models.Empleados
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+    <div class="container my-5">
+
+        @if (Model.Active)
+        {
+            <h2>Bienvenido empleado</h2>
+            <br />
+            <p><strong>Nombre: </strong> @Model.Nombre</p>
+            <br />
+            <p><strong>Area: </strong> @Model.Area</p>
+            <br />
+            <p><strong>Puesto: </strong> @Model.Puesto</p>
+            <br />
+            <br />
+            <p>Tus privilegios dentro de esta administracion son sobre los menus: </p>
+
+            switch (Model.Puesto)
+            {
+                case "Administrador de recursos humanos":
+                    <strong> Empleados -> Recursos humanos</strong>
+                    break;
+                case "Control finanzas":
+                    <strong> Provedores</strong>
+                    break;
+                case "Control de almacen":
+                    <strong> Almacen</strong>
+                    break;
+                case "Director Administrativo":
+                    <strong> Todos los menus</strong>
+                    break;
+                default:
+                    <strong> No puedes acceder a ningun menu</strong>
+                    break;
+
+            }
+        }
+        else
+        {
+            <h2>Usuario inactivo</h2>
+            <br />
+            <p><strong>Nombre: </strong> @Model.Nombre</p>
+            <br />
+            <p><strong>Area: </strong> @Model.Area</p>
+            <br />
+            <p><strong>Puesto: </strong> @Model.Puesto</p>
+            <br />
+            <br />
+            <p>Este usuario ha sido establecido como inactivo por lo que no tiene ningun privilegio sobre ningun menu </p>
+            <strong> Consulte al administrador.</strong>
+
+        }
+
+
+    </div>
