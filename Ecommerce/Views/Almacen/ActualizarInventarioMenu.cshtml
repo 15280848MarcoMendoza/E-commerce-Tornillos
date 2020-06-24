@@ -4,9 +4,9 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Actualizar Inventario menú</h2>
+<h2>Entrega de Producto</h2>
 
-<h6>Seleccione reporte de salida</h6>
+<h6>Seleccione orden de venta</h6>
 @using (@Html.BeginForm("ActualizarInventarioMenu", "Almacen", FormMethod.Get))
 {
     <b> Buscar por:</b>
@@ -22,11 +22,9 @@
 <table class="table">
     <tr>
         <th>
-            Id de reporte de salida
+            Id de Orden de venta
         </th>
-        <th>
-            Nombre de reporte de salida
-        </th>
+        
         <th>
             Fecha
         </th>
@@ -37,40 +35,46 @@
             Cantidad
         </th>
         <th>
-
+            status de entregra
         </th>
 
     </tr>
     @foreach (var item in Model)
     {
 
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReporteSalida.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReporteSalida.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReporteSalida.Fecha)
-            </td>
-            
-            <td>
-                @Html.DisplayFor(modelItem => item.ReporteSalida.Producto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReporteSalida.Cantidad)
-            </td>
-            <td>
-                <p>
-                    @Html.ActionLink("Actualizar Inventario", "ActualizarInventario", new { id = item.DetalleVenta.Producto.Id})
-                </p>
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DetalleVenta.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReporteSalida.Fecha)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.ReporteSalida.Producto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReporteSalida.Cantidad)
+        </td>
+
+        <td>
+            @Html.CheckBoxFor(modelItem => item.DetalleVenta.status)
+        </td>
+        <td>
+            <input type="submit" value="Aceptar" class="btn btn-info" id="boton" onclick="actualizar()" />
+        </td>
+    </tr>
 
 
     }
 </table>
 <br />
+
+<script>
+    function actualizar() {
+        alert("Status cambiado y existencia actualizada")
+        
+    }
+</script>
 
 

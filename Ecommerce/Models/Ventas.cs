@@ -17,6 +17,7 @@ namespace Ecommerce.Models
         public int TipoPago { get; set; }
         public DateTime FechaVenta { get; set; }
         public decimal Total { get; set; }
+        public string Kg { get; set; }
         public int DEBITO => 1;
         public int CREDITO => 2;
         public int STATUS_PENDIENTE_PAGO => 1;

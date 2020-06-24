@@ -14,6 +14,7 @@ namespace Ecommerce.Models
         public virtual Ventas Ventas { get; set; }
         public virtual ICollection<DetalleVentaReporteSalida> DetalleVentaReporteSalida { get; set; }
         public int Cantidad { get; set; }
+        public Boolean status { get; set; }
         public int Porcentaje_Descuento { get; set; }
         public int Porcentaje_Incrmento { get; set; }
         public double Subtotal{ get; set; }

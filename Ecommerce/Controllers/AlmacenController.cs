@@ -93,6 +93,12 @@ namespace Ecommerce.Controllers
             ViewBag.nombrecliente = db.DetalleVentas.Find(id).Ventas.Cliente.Nombre;
             ViewBag.direccioncliente = db.DetalleVentas.Find(id).Ventas.Cliente.Calle;
             ViewBag.producto = db.DetalleVentas.Find(id).Producto.Nombre;
+            ViewBag.municipio = db.DetalleVentas.Find(id).Ventas.Cliente.Municipio;
+            ViewBag.estado = db.DetalleVentas.Find(id).Ventas.Cliente.Estado;
+            ViewBag.peso = db.DetalleVentas.Find(id).Ventas.Kg;
+            ViewBag.telefono = db.DetalleVentas.Find(id).Ventas.Cliente.telefono;
+            ViewBag.correo = db.DetalleVentas.Find(id).Ventas.Cliente.correo;
+            ViewBag.id = db.DetalleVentas.Find(id).Id;
             return View(mensajes);
         }
 
@@ -103,13 +109,20 @@ namespace Ecommerce.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> EditMen([Bind(Include = "Id,NombrePaqueteria,FechaEntrega,Direccion,Remitente,Cliente,Telefono,Correo,Peso,Producto")] Mensajes mensajes)
         {
+            int id;
             if (ModelState.IsValid)
             {
+
                 db.Entry(mensajes).State = EntityState.Modified;
+                id = db.Mensajes.Find(mensajes.Id).Id;
+               
                 await db.SaveChangesAsync();
-                return RedirectToAction("Detalle_Venta");
+                id = db.Mensajes.Find(mensajes.Id).Id;
+                return RedirectToAction("ReporteSalida", "Almacen", new { Id = db.DetalleVentas.Find(id).Id, Fecha = db.Mensajes.Find(mensajes.Id).FechaEntrega });
+               
             }
-            return RedirectToAction("Detalle_Venta");
+            id = db.Mensajes.Find(mensajes.Id).Id;
+            return RedirectToAction("ReporteSalida", "Almacen", new { Id = db.DetalleVentas.Find(id).Id });
         }
 
         public ActionResult ReporteSalidaMenu(string searchBy, string currentsearch, string search, string currentFilter, int? page)
@@ -151,7 +164,7 @@ namespace Ecommerce.Controllers
         }
 
         // GET: ReporteSalidas/Create
-        public ActionResult ReporteSalida(int Id)
+        public ActionResult ReporteSalida(int Id,string Fecha)
         {
 
             
@@ -180,12 +193,12 @@ namespace Ecommerce.Controllers
             if (ModelState.IsValid)
             {
                 
-                db.ReporteSalida.Add(reporteSalida);
-                reporteSalida.DetalleVentaReporteSalida = detalle;
-                await db.SaveChangesAsync();
-                return RedirectToAction("ReporteSalidaMenu");
+                //db.ReporteSalida.Add(reporteSalida);
+                //reporteSalida.DetalleVentaReporteSalida = detalle;
+                //await db.SaveChangesAsync();
+                return RedirectToAction("ActualizarInventarioMenu");
             }
-            return RedirectToAction("ReporteSalidaMenu");
+            return RedirectToAction("ActualizarInventarioMenu");
         }
 
 

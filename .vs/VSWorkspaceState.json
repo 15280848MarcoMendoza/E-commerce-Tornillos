@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Ecommerce"
+    "\\Ecommerce",
+    "\\Ecommerce\\obj",
+    "\\Ecommerce\\Views",
+    "\\Ecommerce\\Views\\Almacen"
   ],
-  "SelectedNode": "\\Ecommerce\\Views",
+  "SelectedNode": "\\Ecommerce\\Views\\Almacen\\Detalle_Venta.cshtml",
   "PreviewInSolutionExplorer": false
 }

@@ -4,10 +4,12 @@
 @{
     ViewBag.Title = "Detalle_Venta";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    
+
 }
 
-<h2>Contactar mensajeria menú</h2>
+
+
+<h2>Contactar paqueteria menú</h2>
 <h6>Seleccionar orden de venta</h6>
 @using (@Html.BeginForm("Detalle_Venta", "Almacen", FormMethod.Get))
 {
@@ -21,6 +23,7 @@
     
     <input type="submit" value="Buscar" class="btn btn-info" />
 }
+
 <table class="table">
     <tr>
         <th>
@@ -39,11 +42,15 @@
             Cliente
         </th>
         <th>
+            Direccion
+        </th>
+        <th>
             Producto
         </th>
         <th>
             Cantidad
         </th>
+       
         <th>
 
         </th>
@@ -54,7 +61,7 @@
 
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Ventas.Id)
+            @Html.DisplayFor(modelItem => item.Id)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Nombre)
@@ -69,16 +76,25 @@
             @Html.DisplayFor(modelItem => item.Ventas.Cliente.Nombre)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Ventas.Cliente.Calle),
+
+            @Html.DisplayFor(modelItem => item.Ventas.Cliente.Municipio),
+
+            @Html.DisplayFor(modelItem => item.Ventas.Cliente.Estado)
+        </td>
+        <td>
 
             @Html.DisplayFor(modelItem => item.Producto.Nombre)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Cantidad)
         </td>
+     
         <td>
-            <p>
-                @Html.ActionLink("Contactar Mensajeria", "EditMen", new { id = item.Id })
-            </p>
+
+
+            @Html.ActionLink("Contactar paqueteria", "EditMen", new { id = item.Id }, new { @class = "btn btn-outline-warning" })
+
         </td>
     </tr>
 
@@ -86,5 +102,6 @@
     }
 </table>
 <br />
+
 
 

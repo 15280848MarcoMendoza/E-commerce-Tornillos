@@ -25,7 +25,8 @@ namespace Ecommerce.Models
         public string Referencia { get; set; }
         public string Tipo_targeta { get; set; }
         public string No_targeta { get; set; }
-        
+        public int telefono { get; set; }
+        public string correo { get; set; }
         [DefaultValue(true)]
         public bool Active { get; set; }
         public virtual ICollection<Ventas> Ventas { get; set; }
