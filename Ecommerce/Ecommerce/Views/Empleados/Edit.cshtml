@@ -1,0 +1,145 @@
+﻿@model Ecommerce.Models.Empleados
+@using Microsoft.AspNet.Identity.EntityFramework
+@using Ecommerce.Models;
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="mt-3 ml-5">
+        @Html.ActionLink("Volver", "Index", new { }, new { @class = "btn btn-primary text-white" })
+    </div>
+
+    <div class="container mt-3">
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.Id_users)
+            @Html.HiddenFor(model => model.Active)
+            @Html.HiddenFor(model => model.Calle)
+            @Html.HiddenFor(model => model.CodigoPostal)
+            @Html.HiddenFor(model => model.Colonia)
+            @Html.HiddenFor(model => model.Estado)
+            @Html.HiddenFor(model => model.Fecha_Nacimeinto)
+            @Html.HiddenFor(model => model.Municipio)
+            @Html.HiddenFor(model => model.NoExterior)
+            @Html.HiddenFor(model => model.NoInterior)
+            @Html.HiddenFor(model => model.Referencia)
+            @Html.HiddenFor(model => model.Registro_Completo)
+            @Html.HiddenFor(model => model.Salario)
+
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                        @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Sexo, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                        @Html.DropDownListFor(model => model.Sexo, new SelectList(
+                                    new[]
+                                    {
+                                        new { Value = "true" , Text = "Hombre" },
+                                        new { Value = "false", Text = "Mujer" },
+                                    },
+                                    "Value",
+                                    "Text",
+                                    Model
+                            ), new { @class = "form-control" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Area, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                        @Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Puesto, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                        @Html.EditorFor(model => model.Puesto, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Puesto, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Contraseña</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" name="Password">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword2">Confirmar Contraseña</label>
+                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" name="ConfirmPassword">
+                    </div>
+
+                    <div class="form-group">
+                        @foreach (ApplicationUser us in ViewBag.Usuarios)
+                        {
+                            if (us.Id.Equals(Model.Id_users))
+                            {
+                                <label for="exampleInputEmail1">Nombre de usuario</label>
+                                <input type="text" class="form-control" id="exampleInputName" value="@us.UserName" aria-describedby="emailHelp" placeholder="Nombre de usuario" name="UserName" required="true">
+                            }
+                        }
+
+                    </div>
+
+                    <strong class="my-2">Roles</strong>
+
+                    <div class="form-check my-3">
+
+                        @if (ViewBag.rolesActuales.Count > 0)
+                        {
+                            foreach (string rol in ViewBag.rolesActuales)
+                            {
+                                <input class="form-check-input" type="checkbox" value="@rol" id="@rol" name="roles" checked="true">
+                                <label class="form-check-label" for="@rol">
+                                    @rol
+                                </label>
+                                <br />
+                            }
+                        }
+
+                        @if (ViewBag.rolesFaltantes.Count > 0)
+                        {
+                            foreach (string rol in ViewBag.rolesFaltantes)
+                            {
+                                <input class="form-check-input" type="checkbox" value="@rol" id="@rol" name="roles">
+                                <label class="form-check-label" for="@rol">
+                                    @rol
+                                </label>
+                                <br />
+                            }
+
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Guardar" class="btn btn-primary text-white" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+

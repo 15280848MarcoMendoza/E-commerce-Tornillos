@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Editar_compra";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Ingrese la nueva Cantidad</h2>
+@using (@Html.BeginForm("Editar_compra", "Proveedores", FormMethod.Post))
+{
+<div class="form-horizontal">
+    <div class="row">
+        <div class="col-md-1">
+            Cantidad:
+        </div>
+        <div class="col-md-4">
+            @Html.TextBox("cantidad")
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <label style="color: red;">
+                @ViewBag.Error
+            </label>
+        </div>
+        
+    </div>
+<input type="submit" value="Guardar" class="btn btn-success" />
+</div>
+}
+
+<br/>
+@Html.ActionLink("Regresar a la lista", "Compra_proveedor")

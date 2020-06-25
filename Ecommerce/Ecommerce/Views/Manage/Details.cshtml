@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Ecommerce.Models.DetalleVenta>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var detalleCompra = ViewBag.detalleCompra;
+}
+
+
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <h2 style="color:#000000">Detalles de la compra</h2>
+        <table class="table" style="margin-bottom:30px;margin-top:30px;">
+            <tr style="background-color: #F7F7F7" class="text-center">
+                <th style="width:17%">
+                    Nombre del Producto
+                </th>
+                <th style="width:20%">
+                    Descripcion
+                </th>
+                <th>
+                    Cantidad
+                </th>
+
+                <th>
+                    Precio Unitario
+                </th>
+                <th>
+                    Descuento
+                </th>
+
+                <th>
+                    Subtotal
+                </th>
+            </tr>
+
+            @foreach (var detalle in detalleCompra)
+            {
+
+
+                <tr style="background-color: #FFFFFF" class="text-center">
+                    <td>
+                        @detalle.detailProducto.Nombre
+                    </td>
+                    <td style="width:20%">
+                        @detalle.detailProducto.Descripcion
+                    </td>
+                    <td>
+                        @detalle.detailVenta.Cantidad
+                    </td>
+                    <td>
+                        @detalle.detailProducto.Precio_final
+                    </td>
+                    <td>
+                        @detalle.detailVenta.Porcentaje_Descuento %
+                    </td>
+
+                    <td>
+                        $ @detalle.detailVenta.Subtotal
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+
+    </div>
+    <div class="col-md-1"></div>
+</div>

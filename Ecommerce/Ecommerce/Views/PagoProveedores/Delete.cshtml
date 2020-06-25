@@ -1,0 +1,138 @@
+﻿@model Ecommerce.Models.Productos
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center">Eliminar</h2>
+
+<h3 class="text-center">¿Esta seguro que quiere eliminar este elemento?</h3>
+<div>
+    <h4>Productos</h4>
+    <hr />
+    <div class="row justify-content-center align-content-center" >
+        <div class="col-md-offset-2">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nombre)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Descripcion)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Url_image)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Url_image)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Sabor)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Sabor)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.activo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.activo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Marca)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Marca)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Costo_unitario)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Costo_unitario)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Porcentage_descuento)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Porcentage_descuento)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Status)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Status)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Time_Mount)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Time_Mount)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Time_Day)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Time_Day)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Precio_final)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Precio_final)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Cantidad_ventas)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Cantidad_ventas)
+                </dd>
+
+            </dl>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-danger" /> |
+                    @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-dark" })
+                </div>
+            }
+
+        </div>
+    </div>
+
+    
+
+   
+</div>

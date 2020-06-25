@@ -1,0 +1,65 @@
+﻿@model Ecommerce.Models.Empleados
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container my-5">
+
+    @if (Model.Active)
+    {
+        <h2>Bienvenido empleado de                    </h2>
+        <img src="~/Content/img/LOGO.jpg" />
+
+        <br />
+        <br />
+        <br />
+        <p><strong>Nombre: </strong> @Model.Nombre</p>
+        <br />
+        <p><strong>Area: </strong> @Model.Area</p>
+        <br />
+        <p><strong>Puesto: </strong> @Model.Puesto</p>
+        <br />
+        <p>Tus privilegios dentro de esta administracion son sobre los menus: </p>
+
+        switch (Model.Puesto)
+        {
+            case "Administrador de recursos humanos":
+                <strong> Empleados -> Recursos humanos</strong>
+                break;
+            case "Control Finanzas":
+                <strong> Del área de Finanzas y sus submenus</strong>
+                break;
+            case "Control Pago Proveedores":
+                <strong> Pago a Proveedores</strong>
+                break;
+            case "Director Administrativo":
+                <strong> Todos los menus</strong>
+                break;
+            case "Control Pago a ProveedoresFEOS":
+                <strong> Pago a Proveedores</strong>
+                break;
+            default:
+                <strong> No puedes acceder a ningun menu</strong>
+                break;
+
+        }
+    }
+    else
+    {
+        <h2>Usuario inactivo</h2>
+        <br />
+        <p><strong>Nombre: </strong> @Model.Nombre</p>
+        <br />
+        <p><strong>Area: </strong> @Model.Area</p>
+        <br />
+        <p><strong>Puesto: </strong> @Model.Puesto</p>
+        <br />
+        <br />
+        <p>Este usuario ha sido establecido como inactivo por lo que no tiene ningun privilegio sobre ningun menu </p>
+        <strong> Consulte al administrador.</strong>
+
+    }
+
+
+</div>

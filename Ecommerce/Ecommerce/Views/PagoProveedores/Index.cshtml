@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Ecommerce.Models.Productos>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+<div class="container-fluid">
+    <div class="row justify-content-center text-center mt-5 mx-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>
+                       <a href="@Url.Action("Historial","PagoProveedores")" class="btn btn-primary">Historial de Facturas Pagadas</a> 
+                    </th>
+                </tr>
+                <tr>
+                    <th>Proveedor</th>
+                    <th>No. Factura</th>
+                    <th>Fecha de Pago</th>
+                    <th>Total a pagar</th>
+                    <th>Estatus</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tornillos Toluca</td>
+                    <td>15</td>
+                    <td>24/06/2020</td>
+                    <td>$9,000.00</td>
+                    <td><strong>En proceso</strong></td>
+                    <td>
+                        <a href="@Url.Action("Detalles","PagoProveedores")" class="btn btn-primary">Pagar</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tornillos Toluca</td>
+                    <td>26</td>
+                    <td>24/06/2020</td>
+                    <td>$3,500.00</td>
+                    <td><strong>En proceso</strong></td>
+                    <td>
+                        <a href="@Url.Action("Detalles","PagoProveedores")" class="btn btn-primary">Pagar</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tornillos Toluca</td>
+                    <td>28</td>
+                    <td>25/06/2020</td>
+                    <td>$16,380.52</td>
+                    <td><strong>En proceso</strong></td>
+                    <td>
+                        <a href="@Url.Action("Detalles","PagoProveedores")" class="btn btn-primary">Pagar</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tornillos Michoacán</td>
+                    <td>10</td>
+                    <td>25/06/2020</td>
+                    <td>$22,000.52</td>
+                    <td><strong>En proceso</strong></td>
+                    <td>
+                        <a href="@Url.Action("DetaIles","PagoProveedores")" class="btn btn-primary">Pagar</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tornillos Michoacán</td>
+                    <td>12</td>
+                    <td>26/06/2020</td>
+                    <td>$6,500.00</td>
+                    <td><strong>En proceso</strong></td>
+                    <td>
+                        <a href="@Url.Action("Detalles","PagoProveedores")" class="btn btn-primary">Pagar</a>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>

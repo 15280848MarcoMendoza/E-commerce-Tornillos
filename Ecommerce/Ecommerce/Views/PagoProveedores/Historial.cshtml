@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Historial";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<div class="container-fluid">
+    <h2>Historial de Facturas Pagadas</h2>
+
+    <div class="row justify-content-center mt-5 mx-3">
+        <table class="table">
+            <thead>
+                <tr style="background-color:#0067B0">
+
+                    <th>Proveedor</th>
+                    <th>No. Factura</th>
+                    <th>Fecha de Pago</th>
+                    <th>Total</th>
+                    <th>Estatus</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tornillos Toluca</td>
+                    <td>28</td>
+                    <td>20/06/2020</td>
+
+                    <td>$16,380.52</td>
+                    <td><strong>Pagado</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <a href="@Url.Action("Index","PagoProveedores")" class="btn btn-primary">Regresar</a>
+    </div>
+</div>
+

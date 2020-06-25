@@ -1,0 +1,239 @@
+﻿
+@using Ecommerce.Models
+@{
+    ViewBag.Title = "Carrito";
+}
+<aside id="colorlib-hero" class="breadcrumbs">
+    <div class="flexslider">
+        <ul class="slides">
+            <li style="background-image: url(../../Estilos/images/tes-shop.jpg);">
+                <div class="overlay"></div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
+                            <div class="slider-text-inner text-center">
+                                <h1>Carrito de Compras</h1>
+                                <h2 class="bread"><span><a href="@Url.Action("Index", "Home")">Inicio</a></span> <span><a href="@Url.Action("Tienda", "Home")">Nuestros Productos</a></span> <span>Carrito</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</aside>
+
+<div class="colorlib-shop">
+    @if (ViewBag.message != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <h3>Compra completa</h3>
+        </div>
+    }
+    <div class="container">
+        <div class="row row-pb-md">
+            <div class="col-md-10 col-md-offset-1">
+
+                @if ((List<Carrito>)Session["carro"] != null)
+                {
+
+                    if (!Request.IsAuthenticated)
+                    {
+                        <div class="alert alert-info my-xl-5" role="alert">
+                            <h3>Inicia Sesión para comprar</h3>
+                        </div>
+                    }
+                    <div class="row justify-content-end px-5">
+                        @if (Request.IsAuthenticated)
+                        {
+                            <div class="justify-self-end mb-5">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseMetodos" role="button" aria-expanded="false" aria-controls="collapseMetodos">
+                                    Comprar
+                                </a>
+                            </div>
+                            <br />
+                            <div class="collapse bg-semitanparente" id="collapseMetodos">
+                                <div class="card card-body">
+                                    <select name="metodoPago" id="metodoPago">
+                                        @foreach (KeyValuePair<int, string> metodo in ViewBag.metodo)
+                                        {
+                                            <option value="1">@metodo.Value</option>
+
+                                        }
+                                        @if (ViewBag.cliente.Tipo_targeta != null)
+                                        {
+                                            <option value="2" type="text" name="targeta">Tarjeta @ViewBag.cliente.No_targeta</option>
+                                        }
+                                    </select>
+                                    @*@if (ViewBag.cliente.Tipo_targeta == null)
+                                        {
+                                            <input type="text" name="targeta" />
+                                            <input type="text" name="cvs" />
+                                        }
+                                        else
+                                        {
+                                            <label>@ViewBag.cliente.Tipo_targeta CVS</label>
+                                            <input type="text" name="cvs" />
+                                        }*@
+
+                                    <button type="button" class="btn btn-primary mt-5" data-toggle="modal" data-target="#Modal">
+                                        Terminar compra
+                                    </button>
+                                </div>
+                            </div>
+                        }
+                        <div class="product-name">
+                            <div class="one-forth text-center">
+                                <span>Detalles de producto</span>
+                            </div>
+                            <div class="one-eight text-center">
+                                <span>Precio</span>
+                            </div>
+                            <div class="one-eight text-center">
+                                <span>Cantidad</span>
+                            </div>
+                            <div class="one-eight text-center">
+                                <span>Subtotal</span>
+                            </div>
+                            <div class="one-eight text-center">
+                                <span>Quitar</span>
+                            </div>
+                        </div>
+
+                        @foreach (Carrito item in (List
+                            <Carrito>
+                                )Session["carro"])
+                        {
+                            <div class="product-cart">
+
+                                <div class="one-forth">
+                                    <div class="product-img">
+                                        <img src="~/Content/@item.Productos.Url_image" width="90" height="110" />
+                                    </div>
+                                    <div class="display-tc">
+                                        <h3>@item.Productos.Nombre</h3>
+                                    </div>
+                                </div>
+                                <div class="one-eight text-center">
+                                    <div class="display-tc">
+                                        <span class="price">$@(item.Productos.Precio_final)</span>
+                                    </div>
+                                </div>
+                                <div class="one-eight text-center">
+                                    <div class="display-tc">
+                                        @if (item.Cantidad > 1)
+                                        {
+                                            <a href="@Url.Action("Cantidad","Carrito",new {Id = item.Productos.Id, mas = false })">
+                                                <i class="fas">menos</i>
+                                            </a>
+                                        }
+                                        @item.Cantidad
+                                        <a href="@Url.Action("Cantidad","Carrito",new {Id = item.Productos.Id, mas = true })">
+                                            <i class="fas fa-plus">más</i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="one-eight text-center">
+                                    <div class="display-tc">
+                                        <span class="price">$@(item.Productos.Precio_final * item.Cantidad)</span>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="one-eight text-center">
+                                    <div class="display-tc">
+                                        <a href="@Url.Action("Eliminar", "Carrito", new { id = item.Productos.Id })" class="closed">
+
+                                        </a>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        }
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-5">
+                            <div class="total-wrap">
+                                <div class="row">
+
+                                    <div class="col-md-4 col-md-push-1 text-center">
+                                        <div class="total">
+                                            <div class="sub">
+
+
+                                            </div>
+                                            <div class="grand-total">
+                                                @{
+                                                    List<Carrito> carro = (List<Carrito>)Session["carro"];
+                                                    var total = carro.Sum(item => item.Productos.Precio_final * item.Cantidad);
+                                                }
+                                                <p><span><strong>Total:</strong></span> <span> $@total MXN</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="">
+                        <h3 class="text-white">Sin Productos en el carrito</h3>
+                    </div>
+                }
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="Modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Terminar compra</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-primary" role="alert">
+                    <b>¿Finalizar la compra?</b>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <!--
+                <a class="btn btn-primary" href="@Url.Action("TerminarCompra", "Carrito")/">
+                    Finalizar compra
+                </a>-->
+                <button type="button" class="btn btn-primary" id="finish">Terminar compra</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+</div>
+
+<script src="/Scripts/jquery-3.4.1.js"></script>
+<script>
+    $(document).ready(function () {
+        console.log("jquery sirve");
+        $("#finish").on("click", function () {
+            console.log("boton clickeado");
+            var tipPago = $("#metodoPago").val();
+            console.log(tipPago);
+            window.location.href = "/Carrito/TerminarCompra?tipoPago="+tipPago;
+
+        });
+    });
+
+</script>

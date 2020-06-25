@@ -1,0 +1,14 @@
+/.vs/Ecommerce/v16/Server/sqlite3/
+/.vs/slnx.sqlite
+/.vs/Ecommerce/v16/.suo
+/.vs/VSWorkspaceState.json
+/Ecommerce/bin/Ecommerce.dll
+/Ecommerce/bin/Ecommerce.pdb
+/Ecommerce/obj/Debug/
+.vs/Ecommerce/config/applicationhost.config
+/.vs/Ecommerce/v15/Server/sqlite3/db.lock
+/.vs/Ecommerce/v15/Server/sqlite3
+/Ecommerce/App_Data/Ecommerce.mdf
+/Ecommerce/App_Data/Ecommerce_log.ldf
+Ecommerce/App_Data/Ecommerce.mdf
+Ecommerce/App_Data/Ecommerce_log.ldf

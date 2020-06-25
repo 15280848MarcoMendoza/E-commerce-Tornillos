@@ -1,0 +1,51 @@
+﻿@model Ecommerce.Models.Productos
+@using Ecommerce.Models
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+
+<div class="container-fluid">
+    <div class="row justify-content-center text-center mt-5 mx-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-left"><strong>Detalles de Factura</strong></div>
+            <div class="panel-body">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td><strong>Proveedor:</strong></td>
+                            <td>Tornillos Toluca</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Numero de Factura:</strong></td>
+                            <td>28</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fecha de Pago:</strong></td>
+                            <td>20/06/2020</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total:</strong></td>
+                            <td>$16,380.52</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Status:</strong></td>
+                            <td>En proceso</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="@Url.Action("Index","PagoProveedores")" class="btn btn-danger">Cancelar</a>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("lndex","PagoProveedores")" class="btn btn-success">Realizar Pago</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

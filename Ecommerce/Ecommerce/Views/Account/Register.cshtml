@@ -1,0 +1,165 @@
+﻿@model Ecommerce.Models.MixClienteUser
+
+@{
+    ViewBag.Title = "Registrate";
+}
+
+<div id="colorlib-contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="contact-wrap">
+
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
+
+
+                        <h3>Registrarse</h3>
+
+
+                        <div class="row form-group">
+                            <div class="col-md-6 padding-bottom">
+                                @Html.LabelFor(model => model.registerviewmodel.Email, new { @class = "control-label" })
+
+                                @Html.TextBoxFor(model => model.registerviewmodel.Email, new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-6">
+
+                                @Html.LabelFor(model => model.registerviewmodel.Password, new { @class = " control-label" })
+
+                                @Html.PasswordFor(model => model.registerviewmodel.Password, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-6 padding-bottom">
+
+                                @Html.LabelFor(model => model.registerviewmodel.ConfirmPassword, new { @class = " control-label" })
+
+                                @Html.PasswordFor(model => model.registerviewmodel.ConfirmPassword, new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-6">
+
+                                @Html.LabelFor(model => model.registerviewmodel.UserName, new { @class = "control-label" })
+
+                                @Html.TextBoxFor(model => model.registerviewmodel.UserName, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-6 padding-bottom">
+
+
+                                @Html.LabelFor(model => model.cliente.Nombre, new { @class = "control-label" })
+
+                                @Html.TextBoxFor(model => model.cliente.Nombre, new { @class = "form-control" })
+
+                            </div>
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.cliente.Sexo, new { @class = "control-label" })
+
+                                @Html.DropDownListFor(model => model.cliente.Sexo, new List<SelectListItem>{
+                                new SelectListItem{ Text="Masculino", Value="true"},
+                                new SelectListItem{ Text="Femenino", Value="false"}
+                                }, "--- Seleccione ---", new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-6 padding-bottom">
+
+
+                                @Html.TextBoxFor(model => model.cliente.Fecha_Nacimeinto, new { type = "date", })
+
+                            </div>
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.cliente.Estado, new { @class = "control-label" })
+
+                                @Html.TextBoxFor(model => model.cliente.Estado, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-6 padding-bottom">
+
+                                @Html.LabelFor(model => model.cliente.Municipio, new { @class = "control-label" })
+
+                                @Html.TextBoxFor(model => model.cliente.Municipio, new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-6">
+
+                                @Html.LabelFor(model => model.cliente.CodigoPostal, new { @class = "control-label" })
+
+                                @Html.TextBoxFor(model => model.cliente.CodigoPostal, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-6 padding-bottom">
+
+                                @Html.LabelFor(model => model.cliente.Colonia, new { @class = "control-label" })
+
+                                @Html.TextBoxFor(model => model.cliente.Colonia, new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.cliente.Calle, new { @class = "control-label" })
+
+                                @Html.TextBoxFor(model => model.cliente.Calle, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-6 padding-bottom">
+
+                                @Html.LabelFor(model => model.cliente.NoInterior, new { @class = "control-label" })
+
+                                @Html.TextBoxFor(model => model.cliente.NoInterior, new { @class = "form-control" })
+
+                            </div>
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.cliente.NoExterior, new { @class = "control-label" })
+
+                                @Html.TextBoxFor(model => model.cliente.NoExterior, new { @class = "form-control" })
+
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-6 padding-bottom">
+                                @Html.LabelFor(model => model.cliente.Referencia, new { @class = "control-label" })
+
+                                @Html.TextBoxFor(model => model.cliente.Referencia, new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-6">
+
+                                <label class="control-label" for="cliente_Tipo_targeta">Tipo de Tarjeta</label>
+                                @Html.DropDownListFor(model => model.cliente.Tipo_targeta,
+                                new SelectList(new[] { "Crédito", "Débito" }),
+                                null,
+                                new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+
+
+                                <label class="control-label" for="cliente_No_targeta">Número de Tarjeta</label>
+                                @Html.TextBoxFor(model => model.cliente.No_targeta, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <input type="submit" class="btn btn-primary  text-center" value="Registrar" />
+                        </div>
+
+
+
+
+
+
+                    }
+                
+                
+              </div>
+                </div>
+    </div>
+</div>
+ 
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
